@@ -123,4 +123,12 @@ footer {
     padding: 1.5rem 0;
     font-size: 0.9rem;
     height: 72px;
+
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)),
+        url("../media/background.webp");
+    background-size: cover;
+    background-position: center;
+    background-position-y: 0px;
+    background-repeat: no-repeat;
 }
