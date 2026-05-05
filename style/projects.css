@@ -132,3 +132,9 @@ aside {
     padding-top: 50px;
     padding-bottom: 30px;
 }
+
+@media (max-width: 968px) {
+    #projects {
+        max-width: 95%;
+    }
+}

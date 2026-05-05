@@ -98,12 +98,14 @@
 @media (max-width: 968px) {
     .hero-section {
         flex-direction: column;
+        max-width: 95%;
     }
 
     .hero-container {
         flex-direction: column;
         text-align: center;
         padding-top: 2rem;
+        max-width: 95%;
     }
 
     .hero-content {
@@ -111,6 +113,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        max-width: 95%;
     }
 
     /* .nav-links {
