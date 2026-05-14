@@ -90,10 +90,10 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-#portre img:hover {
+/* #portre img:hover {
     transform: translateY(-8px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
-    }
+} */
 
 @media (max-width: 968px) {
     .hero-section {
@@ -119,4 +119,10 @@
     /* .nav-links {
         display: none;
     } */
+}
+
+@media (max-width: 475px) {
+    .cta-buttons {
+        flex-direction: column;
+    }
 }

@@ -10,7 +10,7 @@
 }
 
 .contact-container {
-    width: 32em;
+    width: min(32em, 100%);
     margin: 40px auto;
     padding: 0px 30px 30px 30px;
     border-radius: 8px;
@@ -37,6 +37,7 @@ label {
     margin-bottom: 5px;
     font-weight: 600;
     color: #dcdcdc;
+    text-align: left;
 }
 
 .radio-label {
@@ -112,6 +113,7 @@ input[type="checkbox"] {
 #form-buttons {
     display: flex;
     justify-content: center;
+    flex-direction: row;
     margin-top: 30px;
     margin-bottom: 10px;
 }
@@ -146,4 +148,10 @@ table summary {
     font-weight: bold;
     cursor: pointer;
     color: white;
+}
+
+@media (max-width: 475px) {
+    #form-buttons {
+        flex-direction: column;
+    }
 }
