@@ -24,7 +24,7 @@
         </nav>
     </header>
     <section id="projects">
-        <h1 class="section-title">Projects</h1>
+        <!-- <h1 class="section-title">Projects</h1> -->
         <div class="card-main">
             <div class="card-main-img">
                 <video controls src="media/trailer.mp4" poster="media/trailer_thumbnail.png">Rogue Melee Trailer</video>
@@ -115,9 +115,13 @@
     <section id="gallery">
         <h1 class="section-title">Gallery</h1>
         <div class="gallery-pics">
-            <a href="media/combat.gif" target="_blank"><img src="media/combat_thumbnail.png" alt="Screenshot of a Roguelike game where the player is facing an enemy, about to clash swords."></a>
-            <a href="media/enemies.gif" target="_blank"><img src="media/enemies_thumbnail.png" alt="Screenshot of a Roguelike game where the player is in the middle of some encounter."></a>
-            <a href="media/item.gif" target="_blank"><img src="media/item_thumbnail.png" alt="Screenshot of a Roguelike game where an item has been picked up, and is showing it's icon, etc."></a>
+            <img data-highres="media/combat.gif" class="gallery-img" src="media/combat_thumbnail.png" alt="Screenshot of a Roguelike game where the player is facing an enemy, about to clash swords.">
+            <img data-highres="media/enemies.gif" class="gallery-img" src="media/enemies_thumbnail.png" alt="Screenshot of a Roguelike game where the player is in the middle of some encounter.">
+            <img data-highres="media/item.gif" class="gallery-img" src="media/item_thumbnail.png" alt="Screenshot of a Roguelike game where an item has been picked up, and is showing it's icon, etc.">
+        </div>
+        <div id="imageModal" class="modal">
+            <span class="close-btn">&times;</span>
+            <img class="modal-content" id="enlargedImg">
         </div>
     </section>
     <footer>

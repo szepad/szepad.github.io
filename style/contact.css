@@ -82,16 +82,17 @@ input[type="checkbox"] {
     margin-bottom: 3rem;
 }
 
-.social-icons a {
+.social-icons a,
+.social-icons span {
     margin: 5px;
     color: #fff;
     font-size: 1.4rem;
-    transition: transform 0.3s ease, color 0.3s ease;
+    transition: color 0.3s ease;
 }
 
-.social-icons a:hover {
+.social-icons a:hover,
+.social-icons span:hover {
     color: #16a086;
-    transform: translateY(-3px);
 }
 
 #newsletter {
@@ -118,7 +119,55 @@ input[type="checkbox"] {
     margin-bottom: 10px;
 }
 
-table {
+.email-wrapper {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.tooltip-text {
+    visibility: hidden;
+    opacity: 0;
+
+    position: absolute;
+    bottom: 150%; 
+    left: 50%;
+    transform: translateX(-50%);
+
+    background-color: #2b323c;
+    color: #f1f1f1;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: sans-serif;
+    white-space: nowrap;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+
+    transition: opacity 0.3s ease, visibility 0.3s ease, bottom 0.3s ease;
+    z-index: 100;
+}
+
+.tooltip-text::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -6px;
+    border-width: 6px;
+    border-style: solid;
+    border-color: #2b323c transparent transparent transparent;
+}
+
+.email-wrapper:hover .tooltip-text,
+.email-wrapper:focus .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+    bottom: 130%;
+}
+
+/* table {
     border-collapse: collapse;
     width: 100%;
     max-width: 30em;
@@ -127,7 +176,7 @@ table {
 
 th, td {
     color: white;
-    /* border: 1px solid #ccc; */
+    // border: 1px solid #ccc;
     padding: 10px;
     text-align: left;
 }
@@ -148,7 +197,7 @@ table summary {
     font-weight: bold;
     cursor: pointer;
     color: white;
-}
+} */
 
 @media (max-width: 475px) {
     #form-buttons {
