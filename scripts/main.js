@@ -38,7 +38,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // Email copying
     const emailWrapper = document.querySelector('.email-wrapper');
     const tooltipText = document.getElementById('secure-email');
     
@@ -60,6 +59,76 @@ document.addEventListener("DOMContentLoaded", function() {
                 console.error('Failed to copy: ', err);
                 tooltipText.innerText = "Failed to copy";
             });
+        });
+    }
+
+    // Redirect from app to contact
+    const urlParams = new URLSearchParams(window.location.search);
+    const targetApp = urlParams.get('app');
+
+    if (targetApp) {
+        const subjectField = document.getElementById('subject');
+        if (subjectField) {
+            subjectField.value = `${targetApp} App Support`;
+        }
+    }
+
+    // Web3Forms
+    const contactForm = document.getElementById('contact-form');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerText;
+            
+            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+            submitBtn.disabled = true;
+            submitBtn.style.opacity = "0.8";
+            submitBtn.style.cursor = "not-allowed";
+
+            const subjectValue = document.getElementById('subject').value.toLowerCase();
+            
+            const PERSONAL_KEY = "2f5b69b6-a893-47c0-886d-cf8ab3b81161";
+            const SUPPORT_KEY = "06f2b447-2c64-432e-812c-131b543fd41b";
+
+            // If the subject contains "bulkr", route to support. Otherwise personal
+            let activeKey = subjectValue.includes('bulkr') ? SUPPORT_KEY : PERSONAL_KEY;
+
+            const formData = new FormData(contactForm);
+            formData.append('access_key', activeKey);
+
+            try {
+                const response = await fetch("https://api.web3forms.com/submit", {
+                    method: "POST",
+                    body: formData
+                });
+
+                if (response.ok) {
+                    // Success UI State
+                    submitBtn.innerHTML = '<i class="fa-solid fa-check"></i> Sent Successfully!';
+                    submitBtn.style.backgroundColor = "#27ae60"; // Slightly darker green
+                    contactForm.reset(); 
+                } else {
+                    // API Error UI State
+                    submitBtn.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> Error sending';
+                    submitBtn.style.backgroundColor = "#e74c3c"; // Red
+                }
+            } catch (error) {
+                console.error("Form submission error:", error);
+                // Network Error UI State
+                submitBtn.innerHTML = '<i class="fa-solid fa-wifi"></i> Network Error';
+                submitBtn.style.backgroundColor = "#e74c3c";
+            }
+
+            setTimeout(() => {
+                submitBtn.innerText = originalText;
+                submitBtn.style.backgroundColor = ""; 
+                submitBtn.style.opacity = "1";
+                submitBtn.style.cursor = "pointer";
+                submitBtn.disabled = false;
+            }, 3000);
         });
     }
 });

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Bulkr</title>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="style/apps.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <span id="logo-name">Szép Adrián Attila</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="apps.html" class="active">Apps</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="centered-main">
+        <div class="policy-wrapper">
+            <a href="apps.html" class="back-link">
+                <i class="fa-solid fa-arrow-left"></i> Back to Apps
+            </a>
+            
+            <div id="policy-container" class="content-card">
+                Loading privacy policy...
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Szép Adrián Attila. All rights reserved.</p>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+    <script>
+        fetch('privacy-content.html')
+            .then(response => {
+                // If the server returns a 404 (or any non-OK status), throw an error
+                if (!response.ok) {
+                    throw new Error("HTTP error " + response.status);
+                }
+                return response.text();
+            })
+            .then(data => {
+                document.getElementById('policy-container').innerHTML = data;
+            })
+            .catch(error => {
+                // Safely display a basic text error without breaking the page styling
+                document.getElementById('policy-container').innerHTML = `
+                    <h3 style="color: #e74c3c;">Error loading policy.</h3>
+                    <p>Could not find <strong>policy-content.html</strong>.</p>
+                `;
+            });
+    </script>
+</body>
+</html>

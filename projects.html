@@ -19,111 +19,113 @@
             <ul class="nav-links">
                 <li><a href="index.html">About</a></li>
                 <li><a href="projects.html" class="active">Projects</a></li>
+                <li><a href="apps.html">Apps</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
-    <section id="projects">
-        <!-- <h1 class="section-title">Projects</h1> -->
-        <div class="card-main">
-            <div class="card-main-img">
-                <video controls src="media/trailer.mp4" poster="media/trailer_thumbnail.png">Rogue Melee Trailer</video>
+    <main>
+        <section id="projects">
+            <div class="card-main">
+                <div class="card-main-img">
+                    <video controls src="media/trailer.mp4" poster="media/trailer_thumbnail.png">Rogue Melee Trailer</video>
+                </div>
+                <div class="card-content-main">
+                    <h2>Rogue Melee</h2>
+                    <p>Rogue Melee is an action <b>Roguelike</b> where you fight your way through a randomly generated <b>dungeon</b>. As you
+                        descend deeper,
+                        every floor has a unique theme, cast of enemies, bosses and <b>treasure</b> to find. Additionally, you will
+                        also acquire
+                        stronger weapons and items that empower you on your journey.</p>
+                    <h3>Technical Details</h3>
+                    <p>Developed with C# using Raylib framework.</p>
+                    <ul>
+                        <li>Over 35.000 lines of code in about 379 files</li>
+                        <li>Clean and concise code base</li>
+                        <li>2D Real-time lightning with HLSL shaders</li>
+                        <li>Efficient and precise collision detection</li>
+                        <li>Custom Pathfinding</li>
+                    </ul>
+                    <p><a href="https://store.steampowered.com/app/3460770/Rogue_Melee/" target="_blank">Visit Steam Page here</a></p>
+                </div>
             </div>
-            <div class="card-content-main">
-                <h2>Rogue Melee</h2>
-                <p>Rogue Melee is an action <b>Roguelike</b> where you fight your way through a randomly generated <b>dungeon</b>. As you
-                    descend deeper,
-                    every floor has a unique theme, cast of enemies, bosses and <b>treasure</b> to find. Additionally, you will
-                    also acquire
-                    stronger weapons and items that empower you on your journey.</p>
-                <h3>Technical Details</h3>
-                <p>Developed with C# using Raylib framework.</p>
-                <ul>
-                    <li>Over 35.000 lines of code in about 379 files</li>
-                    <li>Clean and concise code base</li>
-                    <li>2D Real-time lightning with HLSL shaders</li>
-                    <li>Efficient and precise collision detection</li>
-                    <li>Custom Pathfinding</li>
-                </ul>
-                <p><a href="https://store.steampowered.com/app/3460770/Rogue_Melee/" target="_blank">Visit Steam Page here</a></p>
+            <h1 class="section-title">Other Projects</h1>
+            <div class="grid">
+                <a href="https://github.com/szepad/" target="_blank" class="card-link">
+                <div class="card">
+                    <img class="card-img" src="media/mario_editor.png" alt="Screenshot of a custom level editor interface for a 2D platformer.">
+                    <div class="card-content">
+                        <h2>Mario Editor</h2>
+                        <p>A fully functioning editor with clean and modern UI, where you can make custom levels for mario. (and also play them!)</p>
+                    </div>
+                </div>
+                </a>
+                <a href="https://github.com/szepad/" target="_blank" class="card-link">
+                <div class="card">
+                    <img class="card-img" src="media/rpg2.png" alt="Screenshot of a top-down, 2D pixel art adventure game.">
+                    <div class="card-content">
+                        <h2>Obscure Adventure</h2>
+                        <p>A 2D Story/Puzzle game, where you have to discover the secrets of a beautiful world!</p>
+                    </div>
+                </div>
+                </a>
+                <a href="https://github.com/szepad/" target="_blank" class="card-link">
+                <div class="card">
+                    <img class="card-img" src="media/shmup.png" alt="Screenshot of a retro, Galaga-style space shooter game.">
+                    <div class="card-content">
+                        <h2>SHMUP</h2>
+                        <p>A retro galaga-like fast-paced shoot 'em up game.</p>
+                    </div>
+                </div>
+                </a>
+                <a href="https://github.com/szepad/" target="_blank" class="card-link">
+                <div class="card">
+                    <img class="card-img" src="media/asteroids.png" alt="Screenshot of an Asteroids arcade game clone with neon wireframe graphics.">
+                    <div class="card-content">
+                        <h2>Asteroids</h2>
+                        <p>The classic arcade game written in C#</p>
+                    </div>
+                </div>
+                </a>
+                <a href="https://github.com/szepad/" target="_blank" class="card-link">
+                <div class="card">
+                    <img class="card-img" src="media/tetris.png" alt="Screenshot of a classic Tetris game board with falling colored blocks.">
+                    <div class="card-content">
+                        <h2>Tetris</h2>
+                        <p>Classic Tetris written in C++</p>
+                    </div>
+                </div>
+                </a>
+                <a href="https://github.com/szepad/" target="_blank" class="card-link">
+                <div class="card">
+                    <img class="card-img" src="media/pong.png" alt="Screenshot of a minimalist Pong game featuring blue and red paddles.">
+                    <div class="card-content">
+                        <h2>Pong</h2>
+                        <p>Old-school pong with an actually smart AI</p>
+                    </div>
+                </div>
+                </a>
             </div>
+            <aside>
+                <p>Hint: Click the tiles to open the corresponding github pages!</p>
+            </aside>
+        </section>
+        <div id="github-link">
+            <a href="https://github.com/szepad/" target="_blank"><i class="fa-brands fa-github"></i></a>
         </div>
-        <h1 class="section-title">Other Projects</h1>
-        <div class="grid">
-            <a href="https://github.com/szepad/" target="_blank" class="card-link">
-            <div class="card">
-                <img class="card-img" src="media/mario_editor.png" alt="Screenshot of a custom level editor interface for a 2D platformer.">
-                <div class="card-content">
-                    <h2>Mario Editor</h2>
-                    <p>A fully functioning editor with clean and modern UI, where you can make custom levels for mario. (and also play them!)</p>
-                </div>
+        <section id="gallery">
+            <h1 class="section-title">Gallery</h1>
+            <div class="gallery-pics">
+                <img data-highres="media/combat.gif" class="gallery-img" src="media/combat_thumbnail.png" alt="Screenshot of a Roguelike game where the player is facing an enemy, about to clash swords.">
+                <img data-highres="media/enemies.gif" class="gallery-img" src="media/enemies_thumbnail.png" alt="Screenshot of a Roguelike game where the player is in the middle of some encounter.">
+                <img data-highres="media/item.gif" class="gallery-img" src="media/item_thumbnail.png" alt="Screenshot of a Roguelike game where an item has been picked up, and is showing it's icon, etc.">
             </div>
-            </a>
-            <a href="https://github.com/szepad/" target="_blank" class="card-link">
-            <div class="card">
-                <img class="card-img" src="media/rpg2.png" alt="Screenshot of a top-down, 2D pixel art adventure game.">
-                <div class="card-content">
-                    <h2>Obscure Adventure</h2>
-                    <p>A 2D Story/Puzzle game, where you have to discover the secrets of a beautiful world!</p>
-                </div>
+            <div id="imageModal" class="modal">
+                <span class="close-btn">&times;</span>
+                <img class="modal-content" id="enlargedImg">
             </div>
-            </a>
-            <a href="https://github.com/szepad/" target="_blank" class="card-link">
-            <div class="card">
-                <img class="card-img" src="media/shmup.png" alt="Screenshot of a retro, Galaga-style space shooter game.">
-                <div class="card-content">
-                    <h2>SHMUP</h2>
-                    <p>A retro galaga-like fast-paced shoot 'em up game.</p>
-                </div>
-            </div>
-            </a>
-            <a href="https://github.com/szepad/" target="_blank" class="card-link">
-            <div class="card">
-                <img class="card-img" src="media/asteroids.png" alt="Screenshot of an Asteroids arcade game clone with neon wireframe graphics.">
-                <div class="card-content">
-                    <h2>Asteroids</h2>
-                    <p>The classic arcade game written in C#</p>
-                </div>
-            </div>
-            </a>
-            <a href="https://github.com/szepad/" target="_blank" class="card-link">
-            <div class="card">
-                <img class="card-img" src="media/tetris.png" alt="Screenshot of a classic Tetris game board with falling colored blocks.">
-                <div class="card-content">
-                    <h2>Tetris</h2>
-                    <p>Classic Tetris written in C++</p>
-                </div>
-            </div>
-            </a>
-            <a href="https://github.com/szepad/" target="_blank" class="card-link">
-            <div class="card">
-                <img class="card-img" src="media/pong.png" alt="Screenshot of a minimalist Pong game featuring blue and red paddles.">
-                <div class="card-content">
-                    <h2>Pong</h2>
-                    <p>Old-school pong with an actually smart AI</p>
-                </div>
-            </div>
-            </a>
-        </div>
-        <aside>
-            <p>Hint: Click the tiles to open the corresponding github pages!</p>
-        </aside>
-    </section>
-    <div id="github-link">
-        <a href="https://github.com/szepad/" target="_blank"><i class="fa-brands fa-github"></i></a>
-    </div>
-    <section id="gallery">
-        <h1 class="section-title">Gallery</h1>
-        <div class="gallery-pics">
-            <img data-highres="media/combat.gif" class="gallery-img" src="media/combat_thumbnail.png" alt="Screenshot of a Roguelike game where the player is facing an enemy, about to clash swords.">
-            <img data-highres="media/enemies.gif" class="gallery-img" src="media/enemies_thumbnail.png" alt="Screenshot of a Roguelike game where the player is in the middle of some encounter.">
-            <img data-highres="media/item.gif" class="gallery-img" src="media/item_thumbnail.png" alt="Screenshot of a Roguelike game where an item has been picked up, and is showing it's icon, etc.">
-        </div>
-        <div id="imageModal" class="modal">
-            <span class="close-btn">&times;</span>
-            <img class="modal-content" id="enlargedImg">
-        </div>
-    </section>
+        </section>
+    </main>
     <footer>
         <p>&copy; 2026 Szép Adrián Attila. All rights reserved.</p>
     </footer>
