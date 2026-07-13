@@ -34,6 +34,10 @@
             </p>
             
             <div class="app-actions-container">
+                <a href="#" id="open-trailer-btn" class="btn btn-green">
+                    <i class="fa-solid fa-play"></i> Watch Video
+                </a>
+
                 <div class="app-actions">
                     <a href="#" class="btn btn-green btn-inactive">
                         <i class="fa-brands fa-apple"></i> Coming Soon
@@ -51,6 +55,20 @@
             </div>
         </article>
     </main>
+
+    <div id="trailer-modal" class="trailer-modal">
+        <div class="modal-content">
+            <button id="close-trailer-btn" class="modal-close">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="modal-video-wrapper">
+                <video id="app-trailer-video" controls playsinline>
+                    <source src="media/bulkr_promo.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
 
     <footer>
         <p>&copy; 2026 Szép Adrián Attila. All rights reserved.</p>

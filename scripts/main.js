@@ -132,3 +132,45 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const trailerBtn = document.getElementById('open-trailer-btn');
+    const modal = document.getElementById('trailer-modal');
+    const closeBtn = document.getElementById('close-trailer-btn');
+    const video = document.getElementById('app-trailer-video');
+
+    if (trailerBtn && modal) {
+        // Open modal & Play video
+        trailerBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            modal.classList.add('active');
+            if (video) video.play();
+        });
+
+        // Reusable Close Function (Pauses and resets video)
+        const closeModal = () => {
+            modal.classList.remove('active');
+            if (video) {
+                video.pause();
+                video.currentTime = 0; 
+            }
+        };
+
+        // Close on X button click
+        closeBtn.addEventListener('click', closeModal);
+
+        // Close on clicking outside the video (overlay click)
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Close on Escape key press
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+    }
+});
