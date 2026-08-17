@@ -93,8 +93,8 @@ document.addEventListener("DOMContentLoaded", function() {
             const PERSONAL_KEY = "2f5b69b6-a893-47c0-886d-cf8ab3b81161";
             const SUPPORT_KEY = "06f2b447-2c64-432e-812c-131b543fd41b";
 
-            // If the subject contains "bulkr", route to support. Otherwise personal
-            let activeKey = subjectValue.includes('bulkr') ? SUPPORT_KEY : PERSONAL_KEY;
+            // If the subject contains "mybulk", route to support. Otherwise personal
+            let activeKey = subjectValue.includes('mybulk') ? SUPPORT_KEY : PERSONAL_KEY;
 
             const formData = new FormData(contactForm);
             formData.append('access_key', activeKey);
