@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Szép Adrián Attila - Projects</title>
     <meta name="description" content="Games and software by Szép Adrián Attila, including the action roguelike Rogue Melee.">
-    <meta name="theme-color" content="#16a086">
+    <meta name="theme-color" content="#15181e">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Szép Adrián Attila">
     <meta property="og:title" content="Szép Adrián Attila - Projects">
@@ -16,144 +16,190 @@
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Inter:wght@400;500;600;700&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Nunito:ital,wght@0,400..900;1,400..900&display=swap">
     <link rel="stylesheet" href="style/main.css">
     <link rel="stylesheet" href="style/projects.css">
 </head>
 <body>
-    <header>
-        <nav class="navbar" aria-label="Main">
-            <a href="index.html" class="logo">Szép Adrián<span class="logo-extra"> Attila</span></a>
-            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Menu">
-                <i class="fa-solid fa-bars icon-open" aria-hidden="true"></i>
-                <i class="fa-solid fa-xmark icon-close" aria-hidden="true"></i>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+        <div class="wrap header-inner">
+            <a class="brand" href="index.html"><img src="media/avatar.jpg" width="80" height="80" alt=""><span class="signature">Szép Adrián Attila</span></a>
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+                <span class="when-closed">Menu</span><span class="when-open">Close</span>
             </button>
-            <ul class="nav-links" id="nav-links">
-                <li><a href="index.html">About</a></li>
-                <li><a href="projects.html" aria-current="page">Projects</a></li>
-                <li><a href="apps.html">Apps</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+            <nav class="site-nav" id="site-nav" aria-label="Main">
+                <a href="index.html"><span class="nav-num" aria-hidden="true">01</span>About</a>
+                <a href="projects.html" aria-current="page"><span class="nav-num" aria-hidden="true">02</span>Projects</a>
+                <a href="apps.html"><span class="nav-num" aria-hidden="true">03</span>Apps</a>
+                <a href="contact.html"><span class="nav-num" aria-hidden="true">04</span>Contact</a>
+            </nav>
+        </div>
     </header>
 
-    <main>
-        <h1 class="visually-hidden">Projects</h1>
+    <main id="main">
+        <header class="wrap page-head">
+            <h1>Projects</h1>
+            <ul class="chips">
+                <li class="chip">1 game on Steam</li>
+                <li class="chip">6 more on GitHub</li>
+            </ul>
+        </header>
 
-        <section class="projects-section" aria-labelledby="featured-title">
-            <article class="featured card-surface">
-                <video class="featured-video" controls preload="metadata" playsinline
+        <section class="wrap" id="rogue-melee" aria-labelledby="rm-title">
+            <div class="game-panel">
+                <video class="game-trailer" controls preload="metadata" playsinline
                     src="media/trailer.mp4" poster="media/trailer_thumbnail.jpg"
                     aria-label="Rogue Melee trailer"></video>
-                <div class="featured-body">
-                    <h2 id="featured-title">Rogue Melee</h2>
-                    <p>Rogue Melee is an action <b>roguelike</b> where you fight your way through a randomly generated <b>dungeon</b>.
-                        As you descend deeper, every floor has a unique theme, cast of enemies, bosses and <b>treasure</b> to find.
-                        You will also acquire stronger weapons and items that empower you on your journey.</p>
 
-                    <h3>Technical Details</h3>
-                    <p>Developed in C# using the Raylib framework.</p>
-                    <ul>
-                        <li>Over 35,000 lines of code across 379 files</li>
-                        <li>Clean and concise codebase</li>
-                        <li>2D real-time lighting with GLSL shaders</li>
-                        <li>Efficient and precise collision detection</li>
-                        <li>Custom pathfinding</li>
-                    </ul>
+                <div class="game-body">
+                    <div class="game-main">
+                        <ul class="chips">
+                            <li class="chip chip-accent">Featured</li>
+                            <li class="chip">On Steam</li>
+                        </ul>
+                        <h2 id="rm-title">Rogue Melee</h2>
+                        <p class="game-desc">Rogue Melee is an action roguelike where you fight your way through a randomly generated dungeon.
+                            As you descend deeper, every floor has a unique theme, cast of enemies, bosses and treasure to find.
+                            You will also acquire stronger weapons and items that empower you on your journey.</p>
+                        <ul class="chips game-tags">
+                            <li class="chip">Action roguelike</li>
+                            <li class="chip">C#</li>
+                            <li class="chip">Raylib</li>
+                            <li class="chip">GLSL shaders</li>
+                        </ul>
+                        <a class="btn btn-primary" href="https://store.steampowered.com/app/3460770/Rogue_Melee/" target="_blank" rel="noopener">
+                            View on Steam <span class="arrow arrow-ne" aria-hidden="true">↗</span>
+                        </a>
+                    </div>
 
-                    <a href="https://store.steampowered.com/app/3460770/Rogue_Melee/" target="_blank" rel="noopener" class="btn btn-green">
-                        <i class="fa-brands fa-steam" aria-hidden="true"></i> View on Steam
-                    </a>
+                    <div class="game-side">
+                        <div class="stats">
+                            <div class="stat">
+                                <span class="stat-value">35,000+</span>
+                                <span class="stat-label">lines of code</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">379</span>
+                                <span class="stat-label">files</span>
+                            </div>
+                        </div>
+                        <h3 class="side-title">Highlights</h3>
+                        <ul class="highlights">
+                            <li>2D real-time lighting with GLSL shaders</li>
+                            <li>Efficient and precise collision detection</li>
+                            <li>Custom pathfinding</li>
+                            <li>Clean and concise codebase</li>
+                        </ul>
+                    </div>
                 </div>
-            </article>
-        </section>
 
-        <section class="projects-section" aria-labelledby="other-title">
-            <h2 class="section-title" id="other-title">Other Projects</h2>
-            <div class="project-grid">
-                <a href="https://github.com/szepad/SuperMario" target="_blank" rel="noopener" class="project-card card-surface">
-                    <img src="media/mario_editor.png" alt="Screenshot of a custom level editor interface for a 2D platformer." loading="lazy">
-                    <div class="project-body">
-                        <h3>Mario Editor</h3>
-                        <p>A fully functional level editor with a clean, modern UI, where you can build custom Mario levels (and play them too!).</p>
-                        <span class="project-link"><i class="fa-brands fa-github" aria-hidden="true"></i> View on GitHub</span>
+                <div class="clips">
+                    <h3 class="side-title">Clips</h3>
+                    <div class="clip-grid">
+                        <button type="button" class="tile clip-btn" data-video="media/combat.mp4" aria-label="Play gameplay clip: combat">
+                            <span class="tile-art">
+                                <video muted loop playsinline preload="none" poster="media/combat_thumbnail.png"></video>
+                                <span class="clip-play" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M5 3v10l8-5z"/></svg></span>
+                            </span>
+                            <span class="tile-info"><span class="tile-title">Combat</span></span>
+                        </button>
+                        <button type="button" class="tile clip-btn" data-video="media/enemies.mp4" aria-label="Play gameplay clip: enemies">
+                            <span class="tile-art">
+                                <video muted loop playsinline preload="none" poster="media/enemies_thumbnail.png"></video>
+                                <span class="clip-play" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M5 3v10l8-5z"/></svg></span>
+                            </span>
+                            <span class="tile-info"><span class="tile-title">Enemies</span></span>
+                        </button>
+                        <button type="button" class="tile clip-btn" data-video="media/item.mp4" aria-label="Play gameplay clip: items">
+                            <span class="tile-art">
+                                <video muted loop playsinline preload="none" poster="media/item_thumbnail.png"></video>
+                                <span class="clip-play" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M5 3v10l8-5z"/></svg></span>
+                            </span>
+                            <span class="tile-info"><span class="tile-title">Items</span></span>
+                        </button>
                     </div>
-                </a>
-                <a href="https://github.com/szepad/RPG2" target="_blank" rel="noopener" class="project-card card-surface">
-                    <img src="media/rpg2.png" alt="Screenshot of a top-down, 2D pixel art adventure game." loading="lazy">
-                    <div class="project-body">
-                        <h3>Obscure Adventure</h3>
-                        <p>A 2D story/puzzle game where you discover the secrets of a beautiful world!</p>
-                        <span class="project-link"><i class="fa-brands fa-github" aria-hidden="true"></i> View on GitHub</span>
-                    </div>
-                </a>
-                <a href="https://github.com/szepad/SHMUP" target="_blank" rel="noopener" class="project-card card-surface">
-                    <img src="media/shmup.png" class="img-top" alt="Screenshot of a retro, Galaga-style space shooter game." loading="lazy">
-                    <div class="project-body">
-                        <h3>SHMUP</h3>
-                        <p>A retro, Galaga-like, fast-paced shoot 'em up.</p>
-                        <span class="project-link"><i class="fa-brands fa-github" aria-hidden="true"></i> View on GitHub</span>
-                    </div>
-                </a>
-                <a href="https://github.com/szepad/Asteroids" target="_blank" rel="noopener" class="project-card card-surface">
-                    <img src="media/asteroids.png" alt="Screenshot of an Asteroids arcade game clone with neon wireframe graphics." loading="lazy">
-                    <div class="project-body">
-                        <h3>Asteroids</h3>
-                        <p>The classic arcade game, written in C#.</p>
-                        <span class="project-link"><i class="fa-brands fa-github" aria-hidden="true"></i> View on GitHub</span>
-                    </div>
-                </a>
-                <a href="https://github.com/szepad/Tetris" target="_blank" rel="noopener" class="project-card card-surface">
-                    <img src="media/tetris.png" alt="Screenshot of a classic Tetris game board with falling colored blocks." loading="lazy">
-                    <div class="project-body">
-                        <h3>Tetris</h3>
-                        <p>Classic Tetris, written in C++.</p>
-                        <span class="project-link"><i class="fa-brands fa-github" aria-hidden="true"></i> View on GitHub</span>
-                    </div>
-                </a>
-                <a href="https://github.com/szepad/Pong" target="_blank" rel="noopener" class="project-card card-surface">
-                    <img src="media/pong.png" alt="Screenshot of a minimalist Pong game featuring blue and red paddles." loading="lazy">
-                    <div class="project-body">
-                        <h3>Pong</h3>
-                        <p>Old-school Pong with an actually smart AI.</p>
-                        <span class="project-link"><i class="fa-brands fa-github" aria-hidden="true"></i> View on GitHub</span>
-                    </div>
-                </a>
-            </div>
-            <div class="more-link">
-                <a href="https://github.com/szepad/" target="_blank" rel="noopener" class="btn btn-transparent">
-                    <i class="fa-brands fa-github" aria-hidden="true"></i> More on GitHub
-                </a>
+                </div>
             </div>
         </section>
 
-        <section class="projects-section gallery" aria-labelledby="gallery-title">
-            <h2 class="section-title" id="gallery-title">Gallery</h2>
-            <div class="gallery-pics">
-                <button type="button" class="gallery-item" data-video="media/combat.mp4">
-                    <img src="media/combat_thumbnail.png" alt="Rogue Melee: the player facing an enemy, about to clash swords." loading="lazy">
-                    <span class="play-badge" aria-hidden="true"><i class="fa-solid fa-play"></i></span>
-                </button>
-                <button type="button" class="gallery-item" data-video="media/enemies.mp4">
-                    <img src="media/enemies_thumbnail.png" alt="Rogue Melee: the player in the middle of an enemy encounter." loading="lazy">
-                    <span class="play-badge" aria-hidden="true"><i class="fa-solid fa-play"></i></span>
-                </button>
-                <button type="button" class="gallery-item" data-video="media/item.mp4">
-                    <img src="media/item_thumbnail.png" alt="Rogue Melee: an item has been picked up and its icon and description are shown." loading="lazy">
-                    <span class="play-badge" aria-hidden="true"><i class="fa-solid fa-play"></i></span>
-                </button>
+        <section class="wrap more" id="more" aria-labelledby="more-title">
+            <div class="shelf-head">
+                <h2 id="more-title">More games &amp; tools</h2>
+                <a class="pill" href="https://github.com/szepad/" target="_blank" rel="noopener">All on GitHub <span class="arrow arrow-ne" aria-hidden="true">↗</span></a>
+            </div>
+            <div class="tile-grid">
+                <a class="tile" href="https://github.com/szepad/SuperMario" target="_blank" rel="noopener">
+                    <div class="tile-art"><img src="media/mario_editor.png" alt="" loading="lazy"></div>
+                    <div class="tile-info">
+                        <span class="tile-title">Mario Editor</span>
+                        <span class="tile-desc">A fully functional level editor with a clean, modern UI, where you can build custom Mario levels (and play them too!).</span>
+                        <span class="chips"><span class="chip">C#</span><span class="chip">GitHub ↗</span></span>
+                    </div>
+                </a>
+                <a class="tile" href="https://github.com/szepad/RPG2" target="_blank" rel="noopener">
+                    <div class="tile-art"><img src="media/rpg2.png" alt="" loading="lazy"></div>
+                    <div class="tile-info">
+                        <span class="tile-title">Obscure Adventure</span>
+                        <span class="tile-desc">A 2D story/puzzle game where you discover the secrets of a beautiful world!</span>
+                        <span class="chips"><span class="chip">C#</span><span class="chip">GitHub ↗</span></span>
+                    </div>
+                </a>
+                <a class="tile" href="https://github.com/szepad/SHMUP" target="_blank" rel="noopener">
+                    <div class="tile-art"><img src="media/shmup.png" class="img-top" alt="" loading="lazy"></div>
+                    <div class="tile-info">
+                        <span class="tile-title">SHMUP</span>
+                        <span class="tile-desc">A retro, Galaga-like, fast-paced shoot 'em up.</span>
+                        <span class="chips"><span class="chip">C#</span><span class="chip">GitHub ↗</span></span>
+                    </div>
+                </a>
+                <a class="tile" href="https://github.com/szepad/Asteroids" target="_blank" rel="noopener">
+                    <div class="tile-art"><img src="media/asteroids.png" alt="" loading="lazy"></div>
+                    <div class="tile-info">
+                        <span class="tile-title">Asteroids</span>
+                        <span class="tile-desc">The classic arcade game, written in C#.</span>
+                        <span class="chips"><span class="chip">C#</span><span class="chip">GitHub ↗</span></span>
+                    </div>
+                </a>
+                <a class="tile" href="https://github.com/szepad/Tetris" target="_blank" rel="noopener">
+                    <div class="tile-art"><img src="media/tetris.png" alt="" loading="lazy"></div>
+                    <div class="tile-info">
+                        <span class="tile-title">Tetris</span>
+                        <span class="tile-desc">Classic Tetris, written in C++.</span>
+                        <span class="chips"><span class="chip">C++</span><span class="chip">GitHub ↗</span></span>
+                    </div>
+                </a>
+                <a class="tile" href="https://github.com/szepad/Pong" target="_blank" rel="noopener">
+                    <div class="tile-art"><img src="media/pong.png" alt="" loading="lazy"></div>
+                    <div class="tile-info">
+                        <span class="tile-title">Pong</span>
+                        <span class="tile-desc">Old-school Pong with an actually smart AI.</span>
+                        <span class="chips"><span class="chip">C#</span><span class="chip">GitHub ↗</span></span>
+                    </div>
+                </a>
             </div>
         </section>
 
         <dialog id="gallery-dialog" class="lightbox" aria-label="Gameplay clip">
-            <button type="button" class="dialog-close" aria-label="Close"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
-            <video class="lightbox-media gallery-video" muted loop playsinline></video>
+            <button type="button" class="dialog-close">Close</button>
+            <video class="lightbox-video" muted loop playsinline></video>
         </dialog>
     </main>
 
-    <footer>
-        <p>&copy; 2026 Szép Adrián Attila. All rights reserved.</p>
+    <footer class="site-footer">
+        <div class="wrap">
+            <a class="footer-tile" href="contact.html">
+                <span class="footer-q">Have a question or an idea?</span>
+                <span class="footer-cta">Get in touch <span class="arrow" aria-hidden="true">→</span></span>
+            </a>
+            <div class="footer-meta">
+                <span>&copy; 2026 Szép Adrián Attila</span>
+                <ul class="footer-links">
+                    <li><a class="pill" href="https://github.com/szepad/" target="_blank" rel="noopener">GitHub ↗</a></li>
+                    <li><a class="pill" href="https://www.linkedin.com/in/adrian-szep/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+                </ul>
+            </div>
+        </div>
     </footer>
     <script src="scripts/main.js"></script>
 </body>

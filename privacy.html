@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - MyBulk</title>
     <meta name="description" content="Privacy policy for the MyBulk iOS app.">
-    <meta name="theme-color" content="#16a086">
+    <meta name="theme-color" content="#15181e">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Szép Adrián Attila">
     <meta property="og:title" content="Privacy Policy - MyBulk">
@@ -16,46 +16,61 @@
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Inter:wght@400;500;600;700&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Nunito:ital,wght@0,400..900;1,400..900&display=swap">
     <link rel="stylesheet" href="style/main.css">
-    <link rel="stylesheet" href="style/apps.css">
+    <link rel="stylesheet" href="style/privacy.css">
 </head>
-<body>
-    <header>
-        <nav class="navbar" aria-label="Main">
-            <a href="index.html" class="logo">Szép Adrián<span class="logo-extra"> Attila</span></a>
-            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Menu">
-                <i class="fa-solid fa-bars icon-open" aria-hidden="true"></i>
-                <i class="fa-solid fa-xmark icon-close" aria-hidden="true"></i>
+<body class="theme-indigo">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+        <div class="wrap header-inner">
+            <a class="brand" href="index.html"><img src="media/avatar.jpg" width="80" height="80" alt=""><span class="signature">Szép Adrián Attila</span></a>
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+                <span class="when-closed">Menu</span><span class="when-open">Close</span>
             </button>
-            <ul class="nav-links" id="nav-links">
-                <li><a href="index.html">About</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="apps.html" aria-current="page">Apps</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+            <nav class="site-nav" id="site-nav" aria-label="Main">
+                <a href="index.html"><span class="nav-num" aria-hidden="true">01</span>About</a>
+                <a href="projects.html"><span class="nav-num" aria-hidden="true">02</span>Projects</a>
+                <a href="apps.html" aria-current="page"><span class="nav-num" aria-hidden="true">03</span>Apps</a>
+                <a href="contact.html"><span class="nav-num" aria-hidden="true">04</span>Contact</a>
+            </nav>
+        </div>
     </header>
 
-    <main class="centered-main">
-        <div class="policy-wrapper">
-            <a href="apps.html" class="back-link">
-                <i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Back to Apps
-            </a>
+    <main id="main" class="wrap doc-page">
+        <a class="pill back-link" href="apps.html"><span class="arrow" aria-hidden="true">←</span> MyBulk</a>
+
+        <div class="doc-layout">
+            <!-- Filled in by scripts/main.js from the policy's headings -->
+            <details class="doc-toc" hidden>
+                <summary>Contents</summary>
+                <ol class="toc-list"></ol>
+            </details>
 
             <!-- The policy text lives in privacy-content.html and is loaded by scripts/main.js -->
-            <div id="policy-container" class="content-card card-surface">
+            <article id="policy-container" class="doc">
                 <p>Loading privacy policy...</p>
                 <noscript>
                     <p><a href="privacy-content.html">Read the privacy policy here</a>.</p>
                 </noscript>
-            </div>
+            </article>
         </div>
     </main>
 
-    <footer>
-        <p>&copy; 2026 Szép Adrián Attila. All rights reserved.</p>
+    <footer class="site-footer">
+        <div class="wrap">
+            <a class="footer-tile" href="contact.html?app=MyBulk">
+                <span class="footer-q">Questions about your data?</span>
+                <span class="footer-cta">Contact support <span class="arrow" aria-hidden="true">→</span></span>
+            </a>
+            <div class="footer-meta">
+                <span>&copy; 2026 Szép Adrián Attila</span>
+                <ul class="footer-links">
+                    <li><a class="pill" href="https://github.com/szepad/" target="_blank" rel="noopener">GitHub ↗</a></li>
+                    <li><a class="pill" href="https://www.linkedin.com/in/adrian-szep/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+                </ul>
+            </div>
+        </div>
     </footer>
     <script src="scripts/main.js"></script>
 </body>

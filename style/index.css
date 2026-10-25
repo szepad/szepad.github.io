@@ -1,101 +1,184 @@
-main {
-    display: flex;
-}
+/* ---------- Hero ---------- */
 
-.hero-section {
-    flex: 1;
-    display: flex;
+.hero {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: 24px;
     align-items: center;
-    justify-content: space-between;
-    gap: 3rem;
-    width: 100%;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 4rem 2rem;
+    padding-top: clamp(2.5rem, 7vw, 5.5rem);
+    padding-bottom: clamp(3rem, 7vw, 5.5rem);
 }
 
-.hero-content {
-    flex: 1;
-    max-width: 560px;
+.hero-text {
+    grid-column: 1 / span 7;
 }
 
-.greeting {
-    font-size: 2rem;
-    font-weight: 500;
-    line-height: 1.2;
-    margin-bottom: 0.2rem;
+.hero h1 {
+    margin-top: 1.5rem;
 }
 
-.name {
-    font-size: 3.5rem;
-    font-weight: 700;
-    line-height: 1.2;
-    color: var(--green);
-    margin-bottom: 1.5rem;
-}
-
-.role-badge {
-    display: inline-flex;
-    align-items: center;
-    background-color: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 500;
-    margin-bottom: 1.5rem;
-}
-
-.bio {
+.hero-greeting {
+    display: block;
+    font-size: clamp(1.5rem, 3vw, 2.1rem);
+    font-weight: 800;
     color: var(--text-soft);
-    line-height: 1.6;
-    margin-bottom: 2rem;
 }
 
-.hero-content .social-icons {
-    margin-bottom: 2.5rem;
+.hero-name {
+    display: block;
+    margin-top: 0.1em;
+    margin-left: -0.03em;
+    font-size: clamp(4rem, 12vw, 8.5rem);
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -0.035em;
+    color: var(--teal);
 }
 
-.portrait {
-    flex-shrink: 0;
+.hero-bio {
+    max-width: 30ch;
+    margin-top: 1.75rem;
+    font-size: clamp(1.15rem, 1.8vw, 1.35rem);
+    font-weight: 500;
+    line-height: 1.5;
 }
 
-.portrait img {
-    width: 300px;
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 2rem;
+}
+
+.hero-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 1.25rem;
+    list-style: none;
+}
+
+.hero-portrait {
+    grid-column: 9 / span 4;
+}
+
+.hero-portrait img {
+    width: 100%;
     height: auto;
-    border-radius: 16px;
-    border: 4px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+    border-radius: 28px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
 }
 
-@media (max-width: 968px) {
-    .hero-section {
-        flex-direction: column;
-        justify-content: center;
-        text-align: center;
-        padding: 3rem 1.5rem;
-    }
+.hero-portrait figcaption {
+    margin-top: 0.75rem;
+    text-align: center;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
 
-    .hero-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+/* ---------- Library shelf ---------- */
 
-    .hero-content .social-icons,
-    .hero-content .cta-buttons {
-        justify-content: center;
+.shelf {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+/* The wide tile is exactly two columns, so 16:9 there and 8:9 on the others
+   gives every cover the same height. */
+.tile-wide .tile-art {
+    aspect-ratio: 16 / 9;
+}
+
+.shelf .tile:not(.tile-wide) .tile-art {
+    aspect-ratio: 8 / 9;
+}
+
+.tile-art-indigo {
+    display: grid;
+    place-items: center;
+    background: var(--indigo);
+}
+
+.tile-art .tile-icon,
+.tile-art-indigo img {
+    width: 46%;
+    height: auto;
+    border-radius: 22.5%;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
+}
+
+.tile-art-stack {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    padding: 12px;
+}
+
+.tile-art-stack img {
+    border-radius: 8px;
+}
+
+.tile-art-stack img.img-top {
+    object-position: top;
+}
+
+.stack-count {
+    position: absolute;
+    right: 14px;
+    bottom: 14px;
+    padding: 0.2rem 0.75rem;
+    border-radius: 999px;
+    background: rgba(21, 24, 30, 0.88);
+    font-size: 1.1rem;
+    font-weight: 900;
+}
+
+/* ---------- Smaller screens ---------- */
+
+@media (max-width: 1000px) {
+    .hero-portrait {
+        grid-column: 8 / span 5;
     }
 }
 
-@media (max-width: 475px) {
-    .name {
-        font-size: 3rem;
+@media (max-width: 760px) {
+    .hero {
+        grid-template-columns: 1fr;
+        row-gap: 2.5rem;
     }
 
-    .hero-content .cta-buttons {
-        flex-direction: column;
-        width: 100%;
-        max-width: 280px;
+    .hero-text,
+    .hero-portrait {
+        grid-column: 1;
+    }
+
+    .hero-portrait {
+        max-width: 340px;
+    }
+
+    /* The library becomes a swipeable shelf, like a console's home row */
+    .shelf {
+        grid-template-columns: none;
+        grid-auto-flow: column;
+        gap: 16px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: thin;
+        margin-inline: calc(-1 * var(--gutter));
+        padding: 10px var(--gutter) 14px;
+        scroll-padding-inline: var(--gutter);
+    }
+
+    .shelf .tile {
+        scroll-snap-align: start;
+        width: 40vw;
+    }
+
+    .shelf .tile-wide {
+        width: 80vw;
     }
 }

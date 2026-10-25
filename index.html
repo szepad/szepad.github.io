@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Szép Adrián Attila - About</title>
     <meta name="description" content="Szép Adrián Attila is a software developer and university student who makes games and apps.">
-    <meta name="theme-color" content="#16a086">
+    <meta name="theme-color" content="#15181e">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Szép Adrián Attila">
     <meta property="og:title" content="Szép Adrián Attila - About">
@@ -16,59 +16,111 @@
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Inter:wght@400;500;600;700&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Nunito:ital,wght@0,400..900;1,400..900&display=swap">
     <link rel="stylesheet" href="style/main.css">
     <link rel="stylesheet" href="style/index.css">
 </head>
 <body>
-    <header>
-        <nav class="navbar" aria-label="Main">
-            <a href="index.html" class="logo">Szép Adrián<span class="logo-extra"> Attila</span></a>
-            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Menu">
-                <i class="fa-solid fa-bars icon-open" aria-hidden="true"></i>
-                <i class="fa-solid fa-xmark icon-close" aria-hidden="true"></i>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+        <div class="wrap header-inner">
+            <a class="brand" href="index.html"><img src="media/avatar.jpg" width="80" height="80" alt=""><span class="signature">Szép Adrián Attila</span></a>
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+                <span class="when-closed">Menu</span><span class="when-open">Close</span>
             </button>
-            <ul class="nav-links" id="nav-links">
-                <li><a href="index.html" aria-current="page">About</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="apps.html">Apps</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+            <nav class="site-nav" id="site-nav" aria-label="Main">
+                <a href="index.html" aria-current="page"><span class="nav-num" aria-hidden="true">01</span>About</a>
+                <a href="projects.html"><span class="nav-num" aria-hidden="true">02</span>Projects</a>
+                <a href="apps.html"><span class="nav-num" aria-hidden="true">03</span>Apps</a>
+                <a href="contact.html"><span class="nav-num" aria-hidden="true">04</span>Contact</a>
+            </nav>
+        </div>
     </header>
 
-    <main>
-        <section class="hero-section">
-            <div class="hero-content">
-                <p class="greeting">Hey, I'm</p>
-                <h1 class="name">Adrián</h1>
-
-                <div class="role-badge">Software Developer &amp; Student</div>
-                <p class="bio">
-                    I'm a 20-year-old university student who enjoys making games and software in his free time.
-                </p>
-                <div class="social-icons">
-                    <a href="https://github.com/szepad/" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
-                    <a href="https://www.linkedin.com/in/adrian-szep/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+    <main id="main">
+        <section class="wrap hero">
+            <div class="hero-text">
+                <span class="chip">Software Developer &amp; Student</span>
+                <h1>
+                    <span class="hero-greeting">Hey, I'm</span>
+                    <span class="hero-name">Adrián</span>
+                </h1>
+                <p class="hero-bio">I'm a 20-year-old university student who enjoys making games and software in his free time.</p>
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="projects.html">View my work <span class="arrow" aria-hidden="true">→</span></a>
+                    <a class="btn" href="contact.html">Contact me</a>
                 </div>
-                <div class="cta-buttons">
-                    <a href="projects.html" class="btn btn-green">
-                        View My Work <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-                    </a>
-                    <a href="contact.html" class="btn btn-transparent">
-                        <i class="fa-regular fa-envelope" aria-hidden="true"></i> Contact Me
-                    </a>
-                </div>
+                <ul class="hero-links">
+                    <li><a class="pill" href="https://github.com/szepad/" target="_blank" rel="noopener">GitHub <span class="arrow arrow-ne" aria-hidden="true">↗</span></a></li>
+                    <li><a class="pill" href="https://www.linkedin.com/in/adrian-szep/" target="_blank" rel="noopener">LinkedIn <span class="arrow arrow-ne" aria-hidden="true">↗</span></a></li>
+                </ul>
             </div>
-            <figure class="portrait">
+            <figure class="hero-portrait">
                 <img src="media/portrait.jpg" width="640" height="803" alt="A smiling young man in a black t-shirt and camo shorts with arms crossed, overlooking Budapest and the Danube.">
+                <figcaption>Overlooking Budapest and the Danube.</figcaption>
             </figure>
+        </section>
+
+        <section class="wrap library" aria-labelledby="library-title">
+            <div class="shelf-head">
+                <h2 id="library-title">Library</h2>
+                <a class="pill" href="projects.html">All projects <span class="arrow" aria-hidden="true">→</span></a>
+            </div>
+            <div class="shelf">
+                <a class="tile tile-wide" href="projects.html#rogue-melee">
+                    <div class="tile-art">
+                        <img src="media/trailer_thumbnail.jpg" width="1920" height="1080" loading="lazy" alt="Rogue Melee key art: a red-caped hero blasting fire at a crowd of monsters.">
+                    </div>
+                    <div class="tile-info">
+                        <span class="tile-title">Rogue Melee</span>
+                        <span class="tile-desc">An action roguelike where you fight your way through a randomly generated dungeon.</span>
+                        <span class="chips"><span class="chip chip-accent">On Steam</span><span class="chip">C#</span><span class="chip">Raylib</span></span>
+                    </div>
+                </a>
+                <a class="tile" href="apps.html">
+                    <div class="tile-art tile-art-indigo">
+                        <img src="media/bulkr-icon.png" width="1024" height="1024" loading="lazy" alt="MyBulk app icon">
+                    </div>
+                    <div class="tile-info">
+                        <span class="tile-title">MyBulk</span>
+                        <span class="tile-desc">Built for gaining weight. No account needed.</span>
+                        <span class="chips"><span class="chip chip-accent">App Store</span><span class="chip">iOS</span></span>
+                    </div>
+                </a>
+                <a class="tile" href="projects.html#more">
+                    <div class="tile-art tile-art-stack">
+                        <img src="media/mario_editor.png" alt="" loading="lazy">
+                        <img src="media/rpg2.png" alt="" loading="lazy">
+                        <img src="media/shmup.png" class="img-top" alt="" loading="lazy">
+                        <img src="media/asteroids.png" alt="" loading="lazy">
+                        <img src="media/tetris.png" alt="" loading="lazy">
+                        <img src="media/pong.png" alt="" loading="lazy">
+                        <span class="stack-count" aria-hidden="true">+6</span>
+                    </div>
+                    <div class="tile-info">
+                        <span class="tile-title">All projects</span>
+                        <span class="tile-desc">Mario Editor, Tetris, Pong and more.</span>
+                        <span class="chips"><span class="chip">GitHub</span></span>
+                    </div>
+                </a>
+            </div>
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2026 Szép Adrián Attila. All rights reserved.</p>
+    <footer class="site-footer">
+        <div class="wrap">
+            <a class="footer-tile" href="contact.html">
+                <span class="footer-q">Have a question or an idea?</span>
+                <span class="footer-cta">Get in touch <span class="arrow" aria-hidden="true">→</span></span>
+            </a>
+            <div class="footer-meta">
+                <span>&copy; 2026 Szép Adrián Attila</span>
+                <ul class="footer-links">
+                    <li><a class="pill" href="https://github.com/szepad/" target="_blank" rel="noopener">GitHub ↗</a></li>
+                    <li><a class="pill" href="https://www.linkedin.com/in/adrian-szep/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+                </ul>
+            </div>
+        </div>
     </footer>
     <script src="scripts/main.js"></script>
 </body>

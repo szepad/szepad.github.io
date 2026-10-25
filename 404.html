@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page not found - Szép Adrián Attila</title>
+    <meta name="robots" content="noindex">
+    <meta name="theme-color" content="#15181e">
+    <!-- GitHub Pages serves this file for any missing URL, so every path here starts at the site root -->
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Nunito:ital,wght@0,400..900;1,400..900&display=swap">
+    <link rel="stylesheet" href="/style/main.css">
+    <style>
+        .notfound {
+            padding-top: clamp(2.5rem, 8vw, 6rem);
+        }
+
+        .notfound-panel {
+            max-width: 40rem;
+            padding: clamp(1.75rem, 5vw, 3rem);
+            border-radius: var(--r-lg);
+            background: var(--surface);
+        }
+
+        .notfound h1 {
+            margin-top: 1rem;
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 900;
+            letter-spacing: -0.03em;
+        }
+
+        .notfound p.lede {
+            margin-top: 0.75rem;
+            font-size: 1.15rem;
+            color: var(--text-soft);
+        }
+
+        .notfound-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+        <div class="wrap header-inner">
+            <a class="brand" href="/"><img src="/media/avatar.jpg" width="80" height="80" alt=""><span class="signature">Szép Adrián Attila</span></a>
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+                <span class="when-closed">Menu</span><span class="when-open">Close</span>
+            </button>
+            <nav class="site-nav" id="site-nav" aria-label="Main">
+                <a href="/"><span class="nav-num" aria-hidden="true">01</span>About</a>
+                <a href="/projects.html"><span class="nav-num" aria-hidden="true">02</span>Projects</a>
+                <a href="/apps.html"><span class="nav-num" aria-hidden="true">03</span>Apps</a>
+                <a href="/contact.html"><span class="nav-num" aria-hidden="true">04</span>Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main" class="wrap notfound">
+        <div class="notfound-panel">
+            <span class="chip">Error 404</span>
+            <h1>Page not found.</h1>
+            <p class="lede">This page doesn't exist, or it has moved.</p>
+            <div class="notfound-actions">
+                <a class="btn btn-primary" href="/">Back to home <span class="arrow" aria-hidden="true">→</span></a>
+                <a class="btn" href="/projects.html">See projects</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="wrap">
+            <div class="footer-meta">
+                <span>&copy; 2026 Szép Adrián Attila</span>
+                <ul class="footer-links">
+                    <li><a class="pill" href="https://github.com/szepad/" target="_blank" rel="noopener">GitHub ↗</a></li>
+                    <li><a class="pill" href="https://www.linkedin.com/in/adrian-szep/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script src="/scripts/main.js"></script>
+</body>
+</html>

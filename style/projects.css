@@ -1,205 +1,235 @@
-.projects-section {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 4rem 2rem 0;
+/* ---------- Rogue Melee: a store-style game page ---------- */
+
+.game-panel {
+    padding: clamp(0.75rem, 2.5vw, 1.5rem);
+    border-radius: 30px;
+    background: var(--surface);
 }
 
-.section-title {
-    text-align: center;
-    font-size: 2.5rem;
-    line-height: 1.2;
-    margin-bottom: 2.5rem;
-}
-
-/* Featured project (Rogue Melee) */
-
-.featured {
-    overflow: hidden;
-    box-shadow: var(--shadow);
-}
-
-.featured-video {
+.game-trailer {
     width: 100%;
     aspect-ratio: 16 / 9;
+    border-radius: var(--r-md);
     background: #000;
 }
 
-.featured-body {
-    padding: 1.5rem 1.75rem 1.75rem;
-    line-height: 1.6;
-}
-
-.featured-body h2 {
-    font-size: 1.75rem;
-    margin-bottom: 0.5rem;
-}
-
-.featured-body h3 {
-    font-size: 1.15rem;
-    margin: 1.5rem 0 0.25rem;
-}
-
-.featured-body ul {
-    padding-left: 1.25rem;
-    margin: 0.5rem 0 1.5rem;
-}
-
-/* Other projects */
-
-.project-grid {
+.game-body {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 2rem;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: clamp(2rem, 5vw, 4rem);
+    padding: clamp(1.5rem, 3.5vw, 2.5rem) clamp(0.5rem, 2vw, 1.25rem) 0;
 }
 
-.project-card {
+.game-main h2 {
+    margin: 0.9rem 0 1rem;
+    font-size: clamp(2.5rem, 6vw, 4.25rem);
+    font-weight: 900;
+    letter-spacing: -0.03em;
+}
+
+.game-desc {
+    max-width: 58ch;
+    font-size: 1.1rem;
+}
+
+.game-tags {
+    margin: 1.5rem 0 1.75rem;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.stat {
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    padding: 1.1rem 1.25rem;
+    border-radius: var(--r-md);
+    background: var(--surface-2);
+}
+
+.stat-value {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--teal);
+}
+
+.stat-label {
+    margin-top: 0.2rem;
+    font-size: 0.925rem;
+    font-weight: 700;
+    color: var(--text-soft);
+}
+
+.side-title {
+    margin: 1.75rem 0 0.85rem;
+    font-size: 1.1rem;
+    font-weight: 800;
+}
+
+.highlights {
+    list-style: none;
+}
+
+.highlights li {
+    position: relative;
+    padding-left: 1.35rem;
     color: var(--text);
-    text-decoration: none;
-    box-shadow: var(--shadow);
-    transition: transform 0.3s ease;
 }
 
-.project-card:hover {
-    transform: translateY(-5px);
+.highlights li + li {
+    margin-top: 0.45rem;
 }
 
-.project-card img {
+.highlights li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--teal);
+}
+
+/* Clips: play on hover, open large on click */
+
+.clips {
+    padding: 0.5rem clamp(0.5rem, 2vw, 1.25rem) clamp(0.75rem, 2vw, 1.25rem);
+}
+
+.clip-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.clip-btn {
     width: 100%;
+    padding: 0;
+    border: 0;
+    background: none;
+    text-align: left;
+    cursor: pointer;
+}
+
+.clip-btn .tile-art {
     aspect-ratio: 16 / 9;
-    object-fit: cover;
     background: #000;
 }
 
-/* For tall screenshots: keep the top (score bar) in view */
-.project-card img.img-top {
+.clip-play {
+    position: absolute;
+    inset: 0;
+    width: 52px;
+    height: 52px;
+    margin: auto;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: rgba(241, 242, 244, 0.92);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.clip-play svg {
+    width: 16px;
+    height: 16px;
+    margin-left: 3px;
+    fill: var(--bg);
+}
+
+.clip-btn:hover .clip-play {
+    transform: scale(1.06);
+}
+
+.clip-btn.is-playing .clip-play {
+    opacity: 0;
+}
+
+.clip-btn .tile-info {
+    padding-top: 0.7rem;
+}
+
+.clip-btn .tile-title {
+    font-size: 1.05rem;
+}
+
+.lightbox-video {
+    width: min(92vw, calc(82vh * 16 / 9), 1100px);
+    width: min(92vw, calc(82dvh * 16 / 9), 1100px);
+    aspect-ratio: 16 / 9;
+    border-radius: var(--r-md);
+    background: #000;
+}
+
+/* ---------- More games & tools ---------- */
+
+.more {
+    margin-top: clamp(3.5rem, 7vw, 5.5rem);
+}
+
+.tile-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2.25rem 24px;
+}
+
+.tile-grid .tile-art {
+    aspect-ratio: 16 / 9;
+    background: #000;
+}
+
+.tile-grid .tile-art img.img-top {
     object-position: top;
 }
 
-.project-body {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    padding: 1.25rem 1.5rem 1.5rem;
-}
+/* ---------- Smaller screens ---------- */
 
-.project-body h3 {
-    font-size: 1.4rem;
-    margin-bottom: 0.4rem;
-}
+@media (max-width: 900px) {
+    .game-body {
+        grid-template-columns: 1fr;
+    }
 
-.project-body p {
-    color: var(--muted);
-}
-
-.project-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    margin-top: auto;
-    padding-top: 1rem;
-    color: var(--green);
-    font-size: 0.9rem;
-    font-weight: 600;
-}
-
-.project-card:hover .project-link {
-    text-decoration: underline;
-}
-
-.more-link {
-    display: flex;
-    justify-content: center;
-    margin-top: 2.5rem;
-}
-
-/* Gallery */
-
-/* Two classes so this also beats the phone-size .projects-section padding below */
-.projects-section.gallery {
-    padding-bottom: 4rem;
-}
-
-.gallery-pics {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-}
-
-.gallery-item {
-    position: relative;
-    width: min(100%, 320px);
-    aspect-ratio: 16 / 9;
-    padding: 0;
-    border: 0;
-    border-radius: 8px;
-    overflow: hidden;
-    background: #000;
-    box-shadow: var(--shadow);
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.gallery-item:hover {
-    transform: translateY(-5px);
-}
-
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.play-badge {
-    position: absolute;
-    inset: 0;
-    margin: auto;
-    width: 52px;
-    height: 52px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-left: 4px;
-    border-radius: 50%;
-    background: rgba(0, 0, 0, 0.55);
-    color: var(--text);
-    font-size: 1.2rem;
-    opacity: 0.85;
-    transition: opacity 0.3s ease, background-color 0.3s ease;
-}
-
-.gallery-item:hover .play-badge {
-    opacity: 1;
-    background: var(--green);
-}
-
-.gallery-video {
-    width: min(92vw, calc(85vh * 16 / 9), 1000px);
-    width: min(92vw, calc(85dvh * 16 / 9), 1000px);
-    aspect-ratio: 16 / 9;
-    border-radius: 8px;
-    background: #000;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    .tile-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 }
 
 @media (max-width: 600px) {
-    .projects-section {
-        padding: 3rem 1.25rem 0;
+    .game-panel {
+        border-radius: var(--r-lg);
     }
 
-    .section-title {
-        font-size: 2rem;
-        margin-bottom: 2rem;
+    .game-trailer {
+        border-radius: var(--r-sm);
     }
 
-    .featured-body {
-        padding: 1.25rem;
+    /* Clips become a swipeable shelf, like the home page library */
+    .clip-grid {
+        grid-template-columns: none;
+        grid-auto-flow: column;
+        grid-auto-columns: 78%;
+        gap: 14px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: thin;
+        padding: 8px 8px 12px;
+        margin-inline: -8px;
     }
 
-    .featured-body .btn {
+    .clip-btn {
+        scroll-snap-align: start;
+    }
+
+    .tile-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .game-main .btn {
         width: 100%;
     }
 }
