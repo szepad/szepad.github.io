@@ -4,79 +4,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Szép Adrián Attila - Contact</title>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Inter:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <meta name="description" content="Get in touch with Szép Adrián Attila, or contact MyBulk app support.">
+    <meta name="theme-color" content="#16a086">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Szép Adrián Attila">
+    <meta property="og:title" content="Szép Adrián Attila - Contact">
+    <meta property="og:description" content="Get in touch, or contact MyBulk app support.">
+    <meta property="og:url" content="https://szepad.github.io/contact.html">
+    <meta property="og:image" content="https://szepad.github.io/media/portrait.jpg">
+    <meta name="twitter:card" content="summary">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Inter:wght@400;500;600;700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style/main.css">
     <link rel="stylesheet" href="style/contact.css">
 </head>
 <body>
     <header>
-        <nav class="navbar">
-            <div class="logo">
-                <span id="logo-name">Szép Adrián Attila</span>
-            </div>
-            <ul class="nav-links">
+        <nav class="navbar" aria-label="Main">
+            <a href="index.html" class="logo">Szép Adrián<span class="logo-extra"> Attila</span></a>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Menu">
+                <i class="fa-solid fa-bars icon-open" aria-hidden="true"></i>
+                <i class="fa-solid fa-xmark icon-close" aria-hidden="true"></i>
+            </button>
+            <ul class="nav-links" id="nav-links">
                 <li><a href="index.html">About</a></li>
                 <li><a href="projects.html">Projects</a></li>
                 <li><a href="apps.html">Apps</a></li>
-                <li><a href="contact.html" class="active">Contact</a></li>
+                <li><a href="contact.html" aria-current="page">Contact</a></li>
             </ul>
         </nav>
     </header>
+
     <main id="contact">
-        <div class="contact-container">
+        <div class="contact-container card-surface">
             <h1>Contact me!</h1>
             <form id="contact-form">
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required placeholder="John Doe" maxlength="50">
+                    <input type="text" id="name" name="name" required placeholder="John Doe" maxlength="50" autocomplete="name">
                 </div>
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required placeholder="john@example.com" maxlength="50">
+                    <input type="email" id="email" name="email" required placeholder="john@example.com" maxlength="100" autocomplete="email">
                 </div>
                 <div class="form-group">
                     <label for="subject">Subject</label>
-                    <input type="text" id="subject" name="subject" required placeholder="Subject" maxlength="50">
+                    <input type="text" id="subject" name="subject" required placeholder="Subject" maxlength="100">
                 </div>
                 <div class="form-group">
                     <label for="message">Message</label>
                     <textarea id="message" name="message" required placeholder="Write your message here..."></textarea>
                 </div>
-                <!-- <div class="form-group">
-                    <div class="radio-item">
-                        <input type="radio" id="gender1" name="gender" value="Male" checked>
-                        <label for="gender1" class="radio-label">Male</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="gender2" name="gender" value="Female">
-                        <label for="gender2" class="radio-label">Female</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="gender3" name="gender" value="Other">
-                        <label for="gender3" class="radio-label">Other</label>
-                    </div>
-                </div> -->
-                <!-- <div class="form-group" id="newsletter">
-                    <input type="checkbox">
-                    <label>Subscribe to newsletter.</label>
-                </div> -->
-                <div class="cta-buttons" id="form-buttons">
+                <!-- Spam trap for Web3Forms: real visitors never see or tick this -->
+                <input type="checkbox" name="botcheck" class="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true">
+                <div class="cta-buttons form-buttons">
                     <button type="submit" class="btn btn-green">Send Message</button>
-                    <button type="reset" class="btn btn-green">Reset</button>
+                    <button type="reset" class="btn btn-transparent">Reset</button>
                 </div>
+                <p id="form-status" class="visually-hidden" role="status"></p>
             </form>
         </div>
-        <div class="social-icons">
-            <a href="https://github.com/szepad" target="_blank"><i class="fa-brands fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/adrian-szep/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
-            <span class="email-wrapper">
-                <i class="fa fa-envelope"></i>
-                <span class="tooltip-text" id="secure-email">szepad06@gmail.com</span>
-            </span>
+        <div class="social-icons contact-socials">
+            <a href="https://github.com/szepad" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+            <a href="https://www.linkedin.com/in/adrian-szep/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+            <button type="button" class="email-btn" data-email="szepad06@gmail.com" aria-label="Copy email address szepad06@gmail.com">
+                <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                <span class="tooltip-text" aria-hidden="true">szepad06@gmail.com</span>
+            </button>
         </div>
     </main>
+
     <footer>
         <p>&copy; 2026 Szép Adrián Attila. All rights reserved.</p>
     </footer>

@@ -1,29 +1,28 @@
+/* Shared by apps.html and privacy.html */
+
 .centered-main {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 5% 5%;
-    flex-grow: 1;
+    padding: 4rem clamp(1rem, 5vw, 4.5rem);
 }
 
 .content-card {
-    background: rgba(0, 0, 0, 0.2);
-    padding: 3rem;
-    border-radius: 12px;
-    max-width: 750px;
     width: 100%;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    max-width: 750px;
+    padding: 3rem;
 }
+
+/* App card */
 
 .app-card {
     display: grid;
     grid-template-columns: auto 1fr;
-    grid-template-rows: auto auto auto 1fr;
     grid-template-areas:
         "icon title"
         "icon desc"
-        "icon actions"
-        ". legal";
+        "icon actions";
+    align-items: start;
     column-gap: 2rem;
     row-gap: 1.2rem;
 }
@@ -40,18 +39,15 @@
 .app-title {
     grid-area: title;
     font-size: 2.8rem;
-    color: #16a086;
     line-height: 1;
-    margin: 0;
-    align-self: end; 
+    color: var(--green);
+    align-self: end;
 }
 
 .app-description {
     grid-area: desc;
     font-size: 1.05rem;
-    line-height: 1.5;
-    color: #c7c7d2;
-    margin: 0;
+    color: var(--muted);
 }
 
 .app-actions-container {
@@ -63,44 +59,31 @@
 
 .app-actions {
     display: grid;
-    grid-template-columns: 1fr 1fr; 
+    grid-template-columns: 1fr 1fr;
     gap: 1rem;
 }
 
 .app-actions-container .btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem; /* Adds clean spacing between FontAwesome icons and text */
     width: 100%;
 }
 
-.btn.btn-inactive {
-    opacity: 0.4;
-    cursor: not-allowed;
-    pointer-events: none;
-    filter: grayscale(60%);
-}
-
 .app-legal {
-    grid-area: legal;
-    font-size: 0.9rem;
-    color: #c7c7d2;
     display: flex;
-    gap: 0.75rem;
     align-items: center;
-    margin-top: -0.25rem;
+    gap: 0.75rem;
+    font-size: 0.9rem;
     font-weight: 500;
+    color: var(--muted);
 }
 
 .app-legal a {
-    color: #c7c7d2;
+    color: var(--muted);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .app-legal a:hover {
-    color: #16a086;
+    color: var(--green);
     text-decoration: underline;
 }
 
@@ -111,17 +94,15 @@
 
 @media (max-width: 650px) {
     .content-card {
-        padding: 2rem;
+        padding: 2rem 1.5rem;
     }
 
     .app-card {
-        grid-template-columns: auto 1fr;
-        grid-template-rows: auto auto auto auto;
         grid-template-areas:
             "icon title"
             "desc desc"
-            "actions actions"
-            "legal legal";
+            "actions actions";
+        align-items: center;
         column-gap: 1.25rem;
         row-gap: 1.25rem;
     }
@@ -133,27 +114,45 @@
     }
 
     .app-title {
-        align-self: center; 
+        align-self: center;
         font-size: 2.5rem;
     }
-    
+
     .app-actions {
         grid-template-columns: 1fr;
     }
 
     .app-legal {
         justify-content: center;
-        margin-top: 0;
     }
 }
+
+/* Promo video popup */
+
+.trailer-frame {
+    width: min(90vw, calc(85vh * 9 / 16), 422px);
+    width: min(90vw, calc(85dvh * 9 / 16), 422px);
+    aspect-ratio: 9 / 16;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #000;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.trailer-frame video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Privacy policy */
 
 .policy-wrapper {
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 1.5rem;
-    max-width: 800px;
     width: 100%;
+    max-width: 750px;
 }
 
 .back-link {
@@ -161,7 +160,7 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    color: #c7c7d2;
+    color: var(--muted);
     text-decoration: none;
     font-size: 0.95rem;
     font-weight: 500;
@@ -169,24 +168,26 @@
 }
 
 .back-link:hover {
-    color: #16a086;
-    transform: translateX(-4px); 
+    color: var(--green);
+    transform: translateX(-4px);
 }
 
 #policy-container {
     line-height: 1.6;
-    color: #c7c7d2;
+    color: var(--muted);
+    overflow-wrap: break-word;
 }
 
 #policy-container h1 {
-    color: #16a086;
+    color: var(--green);
+    line-height: 1.2;
     margin-bottom: 0.5rem;
 }
 
 #policy-container h3 {
-    color: #ffffff;
-    margin-bottom: 0.5rem;
+    color: var(--text);
     margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
 }
 
 #policy-container p {
@@ -199,80 +200,27 @@
 }
 
 #policy-container a {
-    color: #16a086;
+    color: var(--green);
     text-decoration: none;
     transition: opacity 0.3s ease;
 }
 
 #policy-container a:hover {
     opacity: 0.8;
+    text-decoration: underline;
 }
 
-.trailer-modal {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    z-index: 9999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
+#policy-container .policy-error {
+    color: var(--danger);
+    margin-top: 0;
 }
 
-.trailer-modal.active {
-    opacity: 1;
-    pointer-events: auto;
-}
+@media (max-width: 650px) {
+    .centered-main {
+        padding: 2rem 1rem;
+    }
 
-.modal-content {
-    position: relative;
-    /* Strict 9:16 aspect ratio logic that fits any screen safely */
-    height: 85vh;
-    max-height: 750px;
-    max-width: 90vw; 
-    aspect-ratio: 9 / 16;
-    transform: scale(0.95);
-    transition: transform 0.3s ease;
-}
-
-.trailer-modal.active .modal-content {
-    transform: scale(1);
-}
-
-.modal-close {
-    position: absolute;
-    top: -40px;
-    right: -10px;
-    background: transparent;
-    border: none;
-    color: #c7c7d2;
-    font-size: 1.8rem;
-    cursor: pointer;
-    transition: color 0.3s ease;
-    padding: 0.5rem;
-    line-height: 1;
-}
-
-.modal-close:hover {
-    color: #16a086;
-}
-
-.modal-video-wrapper {
-    width: 100%;
-    height: 100%;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-    background: #000;
-}
-
-.modal-video-wrapper video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+    #policy-container ul {
+        margin-left: 1.25rem;
+    }
 }

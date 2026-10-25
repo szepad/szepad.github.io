@@ -4,71 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Szép Adrián Attila - Apps</title>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="description" content="MyBulk for iOS: track your meals, hit your calorie surplus and reach your weight goals with high-calorie recipes built for hardgainers.">
+    <meta name="theme-color" content="#16a086">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Szép Adrián Attila">
+    <meta property="og:title" content="MyBulk - Szép Adrián Attila">
+    <meta property="og:description" content="Track your meals, crush your calorie surplus, and scale your weight goals with high-calorie recipes built for hardgainers.">
+    <meta property="og:url" content="https://szepad.github.io/apps.html">
+    <meta property="og:image" content="https://szepad.github.io/media/bulkr-icon.png">
+    <meta name="twitter:card" content="summary">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Inter:wght@400;500;600;700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style/main.css">
     <link rel="stylesheet" href="style/apps.css">
 </head>
 <body>
     <header>
-        <nav class="navbar">
-            <div class="logo">
-                <span id="logo-name">Szép Adrián Attila</span>
-            </div>
-            <ul class="nav-links">
+        <nav class="navbar" aria-label="Main">
+            <a href="index.html" class="logo">Szép Adrián<span class="logo-extra"> Attila</span></a>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Menu">
+                <i class="fa-solid fa-bars icon-open" aria-hidden="true"></i>
+                <i class="fa-solid fa-xmark icon-close" aria-hidden="true"></i>
+            </button>
+            <ul class="nav-links" id="nav-links">
                 <li><a href="index.html">About</a></li>
                 <li><a href="projects.html">Projects</a></li>
-                <li><a href="apps.html" class="active">Apps</a></li>
+                <li><a href="apps.html" aria-current="page">Apps</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <main class="centered-main">
-        <article class="content-card app-card">
-            <img src="media/bulkr-icon.png" alt="Bulkr App Icon" class="app-icon">
-            
+        <article class="content-card card-surface app-card">
+            <img src="media/bulkr-icon.png" width="128" height="128" alt="MyBulk app icon" class="app-icon">
+
             <h1 class="app-title">MyBulk</h1>
             <p class="app-description">
                 Stop struggling to eat enough. Track your meals, crush your calorie surplus, and scale your weight goals with high-calorie recipes built for hardgainers.
             </p>
-            
+
             <div class="app-actions-container">
-                <a href="#" id="open-trailer-btn" class="btn btn-green">
-                    <i class="fa-solid fa-play"></i> Watch Video
-                </a>
+                <button type="button" id="open-trailer-btn" class="btn btn-green">
+                    <i class="fa-solid fa-play" aria-hidden="true"></i> Watch Video
+                </button>
 
                 <div class="app-actions">
-                    <a href="https://apps.apple.com/us/app/mybulk-gain-muscle-weight/id6780621673" target="_blank" class="btn btn-green">
-                        <i class="fa-brands fa-apple"></i> App Store
+                    <a href="https://apps.apple.com/us/app/mybulk-gain-muscle-weight/id6780621673" target="_blank" rel="noopener" class="btn btn-green">
+                        <i class="fa-brands fa-apple" aria-hidden="true"></i> App Store
                     </a>
                     <a href="contact.html?app=MyBulk" class="btn btn-transparent">
-                        <i class="fa-regular fa-envelope"></i> Support
+                        <i class="fa-regular fa-envelope" aria-hidden="true"></i> Support
                     </a>
                 </div>
-                
+
                 <div class="app-legal">
                     <a href="privacy.html">Privacy Policy</a>
-                    <span class="divider">&bull;</span>
-                    <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank">EULA</a>
+                    <span class="divider" aria-hidden="true">&bull;</span>
+                    <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener">EULA</a>
                 </div>
             </div>
         </article>
     </main>
 
-    <div id="trailer-modal" class="trailer-modal">
-        <div class="modal-content">
-            <button id="close-trailer-btn" class="modal-close">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-            <div class="modal-video-wrapper">
-                <video id="app-trailer-video" controls playsinline>
-                    <source src="media/mybulk_promo.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
+    <dialog id="trailer-dialog" class="lightbox" aria-label="MyBulk promo video">
+        <button type="button" class="dialog-close" aria-label="Close"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+        <div class="lightbox-media trailer-frame">
+            <video id="app-trailer-video" controls playsinline preload="none" src="media/mybulk_promo.mp4"></video>
         </div>
-    </div>
+    </dialog>
 
     <footer>
         <p>&copy; 2026 Szép Adrián Attila. All rights reserved.</p>

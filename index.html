@@ -4,59 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Szép Adrián Attila - About</title>
-    <link
-    href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Inter:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet">
+    <meta name="description" content="Szép Adrián Attila is a software developer and university student who makes games and apps.">
+    <meta name="theme-color" content="#16a086">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Szép Adrián Attila">
+    <meta property="og:title" content="Szép Adrián Attila - About">
+    <meta property="og:description" content="Software developer and university student who makes games and apps.">
+    <meta property="og:url" content="https://szepad.github.io/">
+    <meta property="og:image" content="https://szepad.github.io/media/portrait.jpg">
+    <meta name="twitter:card" content="summary">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Inter:wght@400;500;600;700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style/main.css">
     <link rel="stylesheet" href="style/index.css">
 </head>
 <body>
     <header>
-        <nav class="navbar">
-            <div class="logo">
-                <span id="logo-name">Szép Adrián Attila</span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">About</a></li>
+        <nav class="navbar" aria-label="Main">
+            <a href="index.html" class="logo">Szép Adrián<span class="logo-extra"> Attila</span></a>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Menu">
+                <i class="fa-solid fa-bars icon-open" aria-hidden="true"></i>
+                <i class="fa-solid fa-xmark icon-close" aria-hidden="true"></i>
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html" aria-current="page">About</a></li>
                 <li><a href="projects.html">Projects</a></li>
                 <li><a href="apps.html">Apps</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
+
     <main>
         <section class="hero-section">
-            <article class="hero-container">
-                <div class="hero-content">
-                    <h1 class="greeting">Hey, I'm</h1>
-                    <h2 class="name">Adrián</h2>
+            <div class="hero-content">
+                <p class="greeting">Hey, I'm</p>
+                <h1 class="name">Adrián</h1>
 
-                    <div class="role-badge">
-                        <i class="fa-solid fa-sparkles"></i> Software Developer & Student
-                    </div>
-                    <p class="bio">
-                        A 20 year old university student, who enjoys making games and software in his free time.
-                    </p>
-                    <div class="social-icons">
-                        <a href="https://github.com/szepad/" target="_blank"><i class="fa-brands fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/adrian-szep/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
-                    </div>
-                    <div class="cta-buttons">
-                        <a href="projects.html" class="btn btn-green">
-                            View My Work <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-                        <a href="contact.html" class="btn btn-transparent">
-                            <i class="fa-regular fa-envelope"></i> Contact Me
-                        </a>
-                    </div>
+                <div class="role-badge">Software Developer &amp; Student</div>
+                <p class="bio">
+                    I'm a 20-year-old university student who enjoys making games and software in his free time.
+                </p>
+                <div class="social-icons">
+                    <a href="https://github.com/szepad/" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+                    <a href="https://www.linkedin.com/in/adrian-szep/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
                 </div>
-            </article>
-            <figure id="portre">
-                <img src="media/en.JPG" alt="A smiling young man in a black t-shirt and camo shorts with arms crossed, overlooking Budapest and the Danube.">
+                <div class="cta-buttons">
+                    <a href="projects.html" class="btn btn-green">
+                        View My Work <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                    <a href="contact.html" class="btn btn-transparent">
+                        <i class="fa-regular fa-envelope" aria-hidden="true"></i> Contact Me
+                    </a>
+                </div>
+            </div>
+            <figure class="portrait">
+                <img src="media/portrait.jpg" width="640" height="803" alt="A smiling young man in a black t-shirt and camo shorts with arms crossed, overlooking Budapest and the Danube.">
             </figure>
         </section>
     </main>
+
     <footer>
         <p>&copy; 2026 Szép Adrián Attila. All rights reserved.</p>
     </footer>

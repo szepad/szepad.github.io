@@ -1,176 +1,175 @@
-let logo = document.getElementById("logo-name");
+// Shared script for every page. Each init function does nothing on pages
+// that don't have the elements it needs.
 
-function updateSize() {
-    if (window.innerWidth < 575) {
-        logo.innerText = "Szép Adrián";
-    } else {
-        logo.innerText = "Szép Adrián Attila";
-    }
+// Web3Forms access keys are public by design. Messages whose subject mentions
+// "mybulk" go to the app support inbox, everything else to the personal one.
+const PERSONAL_KEY = "2f5b69b6-a893-47c0-886d-cf8ab3b81161";
+const SUPPORT_KEY = "06f2b447-2c64-432e-812c-131b543fd41b";
+
+initNav();
+initGallery();
+initTrailer();
+initEmailCopy();
+initContactForm();
+initPrivacy();
+
+// Mobile hamburger menu. The open/closed state lives in aria-expanded, which the CSS reads.
+function initNav() {
+    const toggle = document.querySelector(".nav-toggle");
+    if (!toggle) return;
+
+    const setOpen = (open) => toggle.setAttribute("aria-expanded", String(open));
+
+    toggle.addEventListener("click", () => {
+        setOpen(toggle.getAttribute("aria-expanded") !== "true");
+    });
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") setOpen(false);
+    });
+    document.addEventListener("click", (e) => {
+        if (!e.target.closest(".navbar")) setOpen(false);
+    });
 }
 
-updateSize();
-window.addEventListener("resize", updateSize);
+// Close a <dialog> on its close button or a click on the dark area around the content.
+// Escape is handled by the browser. onClose runs however the dialog was closed.
+function setupDialog(dialog, onClose) {
+    dialog.querySelector(".dialog-close")?.addEventListener("click", () => dialog.close());
+    dialog.addEventListener("click", (e) => {
+        if (e.target === dialog) dialog.close();
+    });
+    dialog.addEventListener("close", onClose);
+}
 
-document.addEventListener("DOMContentLoaded", function() {
-    const modal = document.getElementById("imageModal");
-    const modalImg = document.getElementById("enlargedImg");
-    const closeBtn = document.querySelector(".close-btn");
+// Projects page: thumbnails open a looping gameplay clip.
+function initGallery() {
+    const dialog = document.getElementById("gallery-dialog");
+    if (!dialog) return;
+    const video = dialog.querySelector("video");
 
-    const images = document.querySelectorAll(".gallery-img");
-
-    images.forEach(img => {
-        img.style.cursor = 'pointer'; 
-        
-        img.addEventListener("click", function(event) {
-            event.preventDefault();
-            modalImg.src = this.getAttribute("data-highres"); 
-            modal.style.display = "flex"; 
+    document.querySelectorAll(".gallery-item").forEach((item) => {
+        item.addEventListener("click", () => {
+            const thumb = item.querySelector("img");
+            video.poster = thumb.src;
+            video.src = item.dataset.video;
+            video.setAttribute("aria-label", thumb.alt);
+            dialog.showModal();
+            video.play().catch(() => {});
         });
     });
 
-    closeBtn?.addEventListener("click", function() {
-        modal.style.display = "none";
+    setupDialog(dialog, () => {
+        video.pause();
+        video.removeAttribute("src");
+        video.load();
+    });
+}
+
+// Apps page: "Watch Video" opens the promo video.
+function initTrailer() {
+    const button = document.getElementById("open-trailer-btn");
+    const dialog = document.getElementById("trailer-dialog");
+    if (!button || !dialog) return;
+    const video = dialog.querySelector("video");
+
+    button.addEventListener("click", () => {
+        dialog.showModal();
+        video.play().catch(() => {});
     });
 
-    modal?.addEventListener("click", function(event) {
-        if (event.target === modal) {
-            modal.style.display = "none";
+    setupDialog(dialog, () => {
+        video.pause();
+        video.currentTime = 0;
+    });
+}
+
+// Contact page: the envelope icon copies the email address.
+// If copying isn't possible, open the visitor's mail app instead.
+function initEmailCopy() {
+    const button = document.querySelector(".email-btn");
+    if (!button) return;
+    const email = button.dataset.email;
+    const tooltip = button.querySelector(".tooltip-text");
+    let timer;
+
+    button.addEventListener("click", async () => {
+        try {
+            await navigator.clipboard.writeText(email);
+        } catch {
+            window.location.href = `mailto:${email}`;
+            return;
         }
+        tooltip.textContent = "Copied!";
+        button.classList.add("is-copied");
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+            tooltip.textContent = email;
+            button.classList.remove("is-copied");
+        }, 2000);
     });
+}
 
-    const emailWrapper = document.querySelector('.email-wrapper');
-    const tooltipText = document.getElementById('secure-email');
-    
-    const emailAddress = "szepad06@gmail.com";
+// Contact page: pre-fill the subject from ?app=..., then send the form through Web3Forms.
+function initContactForm() {
+    const form = document.getElementById("contact-form");
+    if (!form) return;
+    const subject = form.elements.subject;
+    const submit = form.querySelector('button[type="submit"]');
+    const status = document.getElementById("form-status");
+    const originalLabel = submit.innerHTML;
 
-    if (emailWrapper && tooltipText) {
-        emailWrapper.addEventListener('click', function() {
-            navigator.clipboard.writeText(emailAddress).then(function() {
-                
-                tooltipText.innerText = "Copied!";
-                tooltipText.style.color = "#4CAF50";
-                
-                setTimeout(function() {
-                    tooltipText.innerText = emailAddress;
-                    tooltipText.style.color = "";
-                }, 2000);
-                
-            }).catch(function(err) {
-                console.error('Failed to copy: ', err);
-                tooltipText.innerText = "Failed to copy";
-            });
-        });
-    }
+    const app = new URLSearchParams(window.location.search).get("app");
+    if (app) subject.value = `${app} App Support`;
 
-    // Redirect from app to contact
-    const urlParams = new URLSearchParams(window.location.search);
-    const targetApp = urlParams.get('app');
+    const showState = (html, stateClass, message) => {
+        submit.innerHTML = html;
+        submit.classList.remove("is-success", "is-error");
+        if (stateClass) submit.classList.add(stateClass);
+        status.textContent = message;
+    };
 
-    if (targetApp) {
-        const subjectField = document.getElementById('subject');
-        if (subjectField) {
-            subjectField.value = `${targetApp} App Support`;
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        submit.disabled = true;
+        showState('<i class="fa-solid fa-spinner fa-spin" aria-hidden="true"></i> Sending...', null, "Sending your message...");
+
+        const data = new FormData(form);
+        data.append("access_key", subject.value.toLowerCase().includes("mybulk") ? SUPPORT_KEY : PERSONAL_KEY);
+
+        try {
+            const response = await fetch("https://api.web3forms.com/submit", { method: "POST", body: data });
+            const result = await response.json().catch(() => ({}));
+            if (response.ok && result.success !== false) {
+                showState('<i class="fa-solid fa-check" aria-hidden="true"></i> Sent Successfully!', "is-success", "Your message was sent.");
+                form.reset();
+            } else {
+                showState('<i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i> Error sending', "is-error", "Sorry, the message could not be sent. Please try again.");
+            }
+        } catch (error) {
+            console.error("Form submission error:", error);
+            showState('<i class="fa-solid fa-wifi" aria-hidden="true"></i> Network Error', "is-error", "Network error. Please check your connection and try again.");
         }
+
+        setTimeout(() => {
+            showState(originalLabel, null, "");
+            submit.disabled = false;
+        }, 3000);
+    });
+}
+
+// Privacy page: the policy text lives in privacy-content.html.
+async function initPrivacy() {
+    const container = document.getElementById("policy-container");
+    if (!container) return;
+
+    try {
+        const response = await fetch("privacy-content.html");
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        container.innerHTML = await response.text();
+    } catch (error) {
+        console.error("Could not load the privacy policy:", error);
+        container.innerHTML = `
+            <h3 class="policy-error">Couldn't load the privacy policy.</h3>
+            <p>You can <a href="privacy-content.html">open it directly here</a>.</p>`;
     }
-
-    // Web3Forms
-    const contactForm = document.getElementById('contact-form');
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', async function(e) {
-            e.preventDefault();
-
-            const submitBtn = contactForm.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerText;
-            
-            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
-            submitBtn.disabled = true;
-            submitBtn.style.opacity = "0.8";
-            submitBtn.style.cursor = "not-allowed";
-
-            const subjectValue = document.getElementById('subject').value.toLowerCase();
-            
-            const PERSONAL_KEY = "2f5b69b6-a893-47c0-886d-cf8ab3b81161";
-            const SUPPORT_KEY = "06f2b447-2c64-432e-812c-131b543fd41b";
-
-            // If the subject contains "mybulk", route to support. Otherwise personal
-            let activeKey = subjectValue.includes('mybulk') ? SUPPORT_KEY : PERSONAL_KEY;
-
-            const formData = new FormData(contactForm);
-            formData.append('access_key', activeKey);
-
-            try {
-                const response = await fetch("https://api.web3forms.com/submit", {
-                    method: "POST",
-                    body: formData
-                });
-
-                if (response.ok) {
-                    // Success UI State
-                    submitBtn.innerHTML = '<i class="fa-solid fa-check"></i> Sent Successfully!';
-                    submitBtn.style.backgroundColor = "#27ae60"; // Slightly darker green
-                    contactForm.reset(); 
-                } else {
-                    // API Error UI State
-                    submitBtn.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> Error sending';
-                    submitBtn.style.backgroundColor = "#e74c3c"; // Red
-                }
-            } catch (error) {
-                console.error("Form submission error:", error);
-                // Network Error UI State
-                submitBtn.innerHTML = '<i class="fa-solid fa-wifi"></i> Network Error';
-                submitBtn.style.backgroundColor = "#e74c3c";
-            }
-
-            setTimeout(() => {
-                submitBtn.innerText = originalText;
-                submitBtn.style.backgroundColor = ""; 
-                submitBtn.style.opacity = "1";
-                submitBtn.style.cursor = "pointer";
-                submitBtn.disabled = false;
-            }, 3000);
-        });
-    }
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-    const trailerBtn = document.getElementById('open-trailer-btn');
-    const modal = document.getElementById('trailer-modal');
-    const closeBtn = document.getElementById('close-trailer-btn');
-    const video = document.getElementById('app-trailer-video');
-
-    if (trailerBtn && modal) {
-        // Open modal & Play video
-        trailerBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            modal.classList.add('active');
-            if (video) video.play();
-        });
-
-        // Reusable Close Function (Pauses and resets video)
-        const closeModal = () => {
-            modal.classList.remove('active');
-            if (video) {
-                video.pause();
-                video.currentTime = 0; 
-            }
-        };
-
-        // Close on X button click
-        closeBtn.addEventListener('click', closeModal);
-
-        // Close on clicking outside the video (overlay click)
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                closeModal();
-            }
-        });
-
-        // Close on Escape key press
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && modal.classList.contains('active')) {
-                closeModal();
-            }
-        });
-    }
-});
+}
