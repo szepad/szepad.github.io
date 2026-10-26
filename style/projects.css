@@ -1,8 +1,8 @@
 /* ---------- Rogue Melee: a store-style game page ---------- */
 
 .game-panel {
-    padding: clamp(0.75rem, 2.5vw, 1.5rem);
-    border-radius: 30px;
+    padding: clamp(0.75rem, 2.5vw, 1.25rem);
+    border-radius: var(--r-lg);
     background: var(--surface);
 }
 
@@ -17,13 +17,13 @@
     display: grid;
     grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
     gap: clamp(2rem, 5vw, 4rem);
-    padding: clamp(1.5rem, 3.5vw, 2.5rem) clamp(0.5rem, 2vw, 1.25rem) 0;
+    padding: clamp(1.5rem, 3.5vw, 2.25rem) clamp(0.5rem, 2vw, 1rem) 0;
 }
 
 .game-main h2 {
-    margin: 0.9rem 0 1rem;
-    font-size: clamp(2.5rem, 6vw, 4.25rem);
-    font-weight: 900;
+    margin-bottom: 0.9rem;
+    font-size: clamp(2.25rem, 4.5vw, 3.25rem);
+    font-weight: 800;
     letter-spacing: -0.03em;
 }
 
@@ -33,7 +33,7 @@
 }
 
 .game-tags {
-    margin: 1.5rem 0 1.75rem;
+    margin: 1.4rem 0 1.6rem;
 }
 
 .stats {
@@ -45,14 +45,14 @@
 .stat {
     display: flex;
     flex-direction: column;
-    padding: 1.1rem 1.25rem;
+    padding: 1rem 1.2rem;
     border-radius: var(--r-md);
     background: var(--surface-2);
 }
 
 .stat-value {
-    font-size: clamp(1.75rem, 3vw, 2.25rem);
-    font-weight: 900;
+    font-size: clamp(1.6rem, 2.6vw, 2rem);
+    font-weight: 800;
     line-height: 1.1;
     letter-spacing: -0.02em;
     color: var(--teal);
@@ -61,14 +61,14 @@
 .stat-label {
     margin-top: 0.2rem;
     font-size: 0.925rem;
-    font-weight: 700;
+    font-weight: 600;
     color: var(--text-soft);
 }
 
 .side-title {
     margin: 1.75rem 0 0.85rem;
     font-size: 1.1rem;
-    font-weight: 800;
+    font-weight: 700;
 }
 
 .highlights {
@@ -78,7 +78,6 @@
 .highlights li {
     position: relative;
     padding-left: 1.35rem;
-    color: var(--text);
 }
 
 .highlights li + li {
@@ -96,10 +95,10 @@
     background: var(--teal);
 }
 
-/* Clips: play on hover, open large on click */
+/* Clips: the cover plays on hover and opens large on click; the caption sits below */
 
 .clips {
-    padding: 0.5rem clamp(0.5rem, 2vw, 1.25rem) clamp(0.75rem, 2vw, 1.25rem);
+    padding: 0.5rem clamp(0.5rem, 2vw, 1rem) clamp(0.75rem, 2vw, 1rem);
 }
 
 .clip-grid {
@@ -109,17 +108,15 @@
 }
 
 .clip-btn {
-    width: 100%;
-    padding: 0;
-    border: 0;
-    background: none;
-    text-align: left;
-    cursor: pointer;
-}
-
-.clip-btn .tile-art {
     aspect-ratio: 16 / 9;
     background: #000;
+}
+
+.clip-title {
+    margin-top: 0.7rem;
+    padding-left: 0.25rem;
+    font-size: 1.05rem;
+    font-weight: 700;
 }
 
 .clip-play {
@@ -136,9 +133,8 @@
 }
 
 .clip-play svg {
-    width: 16px;
-    height: 16px;
-    margin-left: 3px;
+    width: 22px;
+    height: 22px;
     fill: var(--bg);
 }
 
@@ -148,14 +144,6 @@
 
 .clip-btn.is-playing .clip-play {
     opacity: 0;
-}
-
-.clip-btn .tile-info {
-    padding-top: 0.7rem;
-}
-
-.clip-btn .tile-title {
-    font-size: 1.05rem;
 }
 
 .lightbox-video {
@@ -200,10 +188,6 @@
 }
 
 @media (max-width: 600px) {
-    .game-panel {
-        border-radius: var(--r-lg);
-    }
-
     .game-trailer {
         border-radius: var(--r-sm);
     }
@@ -221,7 +205,7 @@
         margin-inline: -8px;
     }
 
-    .clip-btn {
+    .clip {
         scroll-snap-align: start;
     }
 

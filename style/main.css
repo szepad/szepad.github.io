@@ -1,19 +1,19 @@
 /* ==========================================================================
    Shared styles: "game library" design system
-   Dark graphite surfaces, rounded Nunito type, and a teal selection ring
-   (like a console cursor) on everything you can hover or focus.
+   Dark graphite surfaces, the system sans-serif, and a teal selection ring
+   (like a console cursor) around cover art you can hover or focus.
    ========================================================================== */
 
 :root {
-    --bg: #15181e;
-    --surface: #1e2128;
-    --surface-2: #272b34;
-    --surface-3: #313643;
+    --bg: #0f1115;
+    --surface: #181b21;
+    --surface-2: #22262e;
+    --surface-3: #2c313b;
     --line: rgba(255, 255, 255, 0.08);
 
-    --text: #f1f2f4;
-    --text-soft: #aab0bc;
-    --text-muted: #9298a5;
+    --text: #f3f4f6;
+    --text-soft: #a9afbb;
+    --text-muted: #959ba8;
 
     --teal: #2bbf9f;          /* brand + selection ring */
     --teal-hover: #5fd3b9;
@@ -27,12 +27,17 @@
     --success: #5fd38f;
     --danger: #ff8f7a;
 
-    --font: 'Nunito', ui-rounded, system-ui, sans-serif;
+    /* The visitor's own system font: SF Pro on Apple, Segoe UI on Windows, Roboto on Android */
+    --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     --font-hand: 'Caveat', cursive;
 
-    --r-sm: 12px;
-    --r-md: 18px;
-    --r-lg: 24px;
+    /* Corner scale: only small tags and the avatar are fully round */
+    --r-xs: 8px;     /* tiny controls (Copy) */
+    --r-sm: 10px;    /* inputs, nav tabs, small buttons */
+    --r-btn: 12px;   /* buttons */
+    --r-md: 14px;    /* cover art, small cards */
+    --r-lg: 20px;    /* panels */
+
     --gutter: clamp(16px, 4vw, 48px);
     --max: 1200px;
     --header-h: 68px;
@@ -95,7 +100,7 @@ select {
 h1,
 h2,
 h3 {
-    font-weight: 800;
+    font-weight: 700;
     line-height: 1.1;
     letter-spacing: -0.015em;
     text-wrap: balance;
@@ -147,10 +152,10 @@ a {
     left: var(--gutter);
     z-index: 200;
     padding: 0.6rem 1.1rem;
-    border-radius: 999px;
+    border-radius: var(--r-sm);
     background: var(--teal);
     color: var(--on-teal);
-    font-weight: 800;
+    font-weight: 700;
     text-decoration: none;
 }
 
@@ -181,7 +186,7 @@ a {
     display: inline-flex;
     align-items: center;
     gap: 0.7rem;
-    border-radius: 999px;
+    border-radius: var(--r-sm);
     color: var(--text);
     text-decoration: none;
 }
@@ -207,36 +212,35 @@ a {
 }
 
 .site-nav a {
-    padding: 0.5rem 1rem;
-    border-radius: 999px;
+    padding: 0.5rem 0.8rem;
+    border-radius: var(--r-sm);
     color: var(--text-soft);
-    font-weight: 700;
+    font-weight: 600;
     font-size: 0.95rem;
     text-decoration: none;
     transition: background-color 0.15s ease, color 0.15s ease;
 }
 
 .site-nav a:hover {
-    background: var(--surface);
     color: var(--text);
 }
 
+/* The current page is underlined in teal */
 .site-nav a[aria-current="page"] {
-    background: var(--surface-2);
     color: var(--text);
-}
-
-.site-nav .nav-num {
-    display: none;
+    text-decoration: underline;
+    text-decoration-color: var(--teal);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 8px;
 }
 
 .menu-toggle {
     display: none;
-    padding: 0.5rem 1.1rem;
+    padding: 0.5rem 1rem;
     border: 0;
-    border-radius: 999px;
+    border-radius: var(--r-sm);
     background: var(--surface);
-    font-weight: 800;
+    font-weight: 700;
     font-size: 0.95rem;
     cursor: pointer;
 }
@@ -250,6 +254,7 @@ a {
     display: inline;
 }
 
+/* Phones: a plain dropdown list of the four pages */
 @media (max-width: 760px) {
     .menu-toggle {
         display: block;
@@ -262,8 +267,8 @@ a {
         left: var(--gutter);
         right: var(--gutter);
         flex-direction: column;
-        gap: 0.25rem;
-        padding: 0.5rem;
+        gap: 2px;
+        padding: 6px;
         border-radius: var(--r-lg);
         background: var(--surface);
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
@@ -275,25 +280,18 @@ a {
     }
 
     .site-nav a {
-        display: flex;
-        align-items: baseline;
-        gap: 0.9rem;
-        padding: 0.9rem 1rem;
+        padding: 0.85rem 1rem;
         border-radius: var(--r-md);
-        font-size: 1.3rem;
-        font-weight: 800;
+        font-size: 1.1rem;
         color: var(--text);
     }
 
-    .site-nav a[aria-current="page"] {
+    .site-nav a:hover {
         background: var(--surface-2);
     }
 
-    .site-nav .nav-num {
-        display: inline;
-        font-size: 0.8rem;
-        font-weight: 700;
-        color: var(--text-muted);
+    .site-nav a[aria-current="page"] {
+        text-underline-offset: 6px;
     }
 }
 
@@ -308,19 +306,19 @@ a {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* ---------- Buttons, pills, chips ---------- */
+/* ---------- Buttons and tags ---------- */
 
 .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    padding: 0.85rem 1.5rem;
+    padding: 0.8rem 1.35rem;
     border: 0;
-    border-radius: 999px;
+    border-radius: var(--r-btn);
     background: var(--surface-2);
     color: var(--text);
-    font-weight: 800;
+    font-weight: 700;
     font-size: 1rem;
     line-height: 1.2;
     text-decoration: none;
@@ -331,6 +329,16 @@ a {
 .btn-primary {
     background: var(--btn-bg);
     color: var(--btn-text);
+}
+
+/* A smaller, quieter button for secondary links ("All projects", "Back") */
+.btn-sm {
+    padding: 0.45rem 0.85rem;
+    border-radius: var(--r-sm);
+    background: var(--surface);
+    color: var(--text-soft);
+    font-size: 0.9rem;
+    font-weight: 600;
 }
 
 .btn:active {
@@ -345,6 +353,11 @@ a {
 @media (hover: hover) {
     .btn:hover {
         background: var(--surface-3);
+    }
+
+    .btn-sm:hover {
+        background: var(--surface-2);
+        color: var(--text);
     }
 
     .btn-primary:hover {
@@ -366,25 +379,6 @@ a:hover .arrow-ne {
     transform: translate(2px, -2px);
 }
 
-.pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    padding: 0.45rem 0.95rem;
-    border-radius: 999px;
-    background: var(--surface);
-    color: var(--text-soft);
-    font-weight: 700;
-    font-size: 0.9rem;
-    text-decoration: none;
-    transition: background-color 0.15s ease, color 0.15s ease;
-}
-
-.pill:hover {
-    background: var(--surface-2);
-    color: var(--text);
-}
-
 .chips {
     display: flex;
     flex-wrap: wrap;
@@ -400,7 +394,7 @@ a:hover .arrow-ne {
     background: var(--surface-2);
     color: var(--text-soft);
     font-size: 0.8rem;
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1.4;
     white-space: nowrap;
 }
@@ -410,29 +404,31 @@ a:hover .arrow-ne {
     color: var(--teal);
 }
 
-/* ---------- Tiles: the library "cover art" with the selection ring ---------- */
+/* ---------- Tiles: only the cover art is the link, and it gets the ring ---------- */
 
 .tile {
-    display: block;
     color: var(--text);
-    text-decoration: none;
-    border-radius: var(--r-md);
-}
-
-.tile:focus-visible {
-    outline: none;
 }
 
 .tile-art {
     position: relative;
     display: block;
+    width: 100%;
     overflow: hidden;
+    padding: 0;
+    border: 0;
     border-radius: var(--r-md);
     background: var(--surface);
+    color: var(--text);
     outline: 3px solid transparent;
     outline-offset: 4px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
     transition: outline-color 0.15s ease, transform 0.15s ease;
+}
+
+a.tile-art,
+button.tile-art {
+    cursor: pointer;
 }
 
 .tile-art img,
@@ -442,13 +438,14 @@ a:hover .arrow-ne {
     object-fit: cover;
 }
 
-.tile:focus-visible .tile-art {
+.tile-art:focus-visible {
     outline-color: var(--teal);
     transform: translateY(-3px);
 }
 
 @media (hover: hover) {
-    .tile:hover .tile-art {
+    a.tile-art:hover,
+    button.tile-art:hover {
         outline-color: var(--teal);
         transform: translateY(-3px);
     }
@@ -461,7 +458,7 @@ a:hover .arrow-ne {
 .tile-title {
     display: block;
     font-size: 1.2rem;
-    font-weight: 800;
+    font-weight: 700;
     line-height: 1.25;
 }
 
@@ -495,18 +492,14 @@ a:hover .arrow-ne {
 /* ---------- Page heading ---------- */
 
 .page-head {
-    padding-top: clamp(2.5rem, 6vw, 4.5rem);
-    padding-bottom: clamp(1.75rem, 4vw, 2.75rem);
+    padding-top: clamp(2.25rem, 5vw, 3.75rem);
+    padding-bottom: clamp(1.5rem, 3vw, 2.25rem);
 }
 
 .page-head h1 {
-    font-size: clamp(2.75rem, 7vw, 4.5rem);
-    font-weight: 900;
+    font-size: clamp(2.25rem, 5vw, 3.25rem);
+    font-weight: 800;
     letter-spacing: -0.025em;
-}
-
-.page-head .chips {
-    margin-top: 1rem;
 }
 
 /* ---------- Footer ---------- */
@@ -518,7 +511,7 @@ a:hover .arrow-ne {
 
 .footer-tile {
     display: block;
-    padding: clamp(1.75rem, 4vw, 2.75rem);
+    padding: clamp(1.25rem, 3vw, 1.75rem) clamp(1.25rem, 3vw, 2rem);
     border-radius: var(--r-lg);
     background: var(--surface);
     color: var(--text);
@@ -542,17 +535,17 @@ a:hover .arrow-ne {
 .footer-tile .footer-q {
     display: block;
     color: var(--text-soft);
-    font-size: clamp(1.05rem, 2vw, 1.3rem);
-    font-weight: 700;
+    font-size: 0.975rem;
+    font-weight: 600;
 }
 
 .footer-tile .footer-cta {
     display: block;
-    margin-top: 0.25rem;
-    font-size: clamp(1.9rem, 4.5vw, 3rem);
-    font-weight: 900;
-    letter-spacing: -0.02em;
-    line-height: 1.1;
+    margin-top: 0.15rem;
+    font-size: clamp(1.35rem, 2.6vw, 1.75rem);
+    font-weight: 800;
+    letter-spacing: -0.015em;
+    line-height: 1.2;
 }
 
 .footer-tile .footer-cta .arrow {
@@ -565,7 +558,7 @@ a:hover .arrow-ne {
     align-items: center;
     flex-wrap: wrap;
     gap: 0.75rem 1.5rem;
-    padding-top: 1.5rem;
+    padding-top: 1.25rem;
     color: var(--text-muted);
     font-size: 0.875rem;
     font-weight: 600;
@@ -573,7 +566,35 @@ a:hover .arrow-ne {
 
 .footer-links {
     display: flex;
-    gap: 0.4rem;
+    gap: 0.5rem;
+    list-style: none;
+}
+
+/* GitHub / LinkedIn: just the icons, with a comfortable click area around them */
+.icon-link {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border-radius: var(--r-sm);
+    color: var(--text-soft);
+    transition: color 0.15s ease, transform 0.15s ease;
+}
+
+.icon-link svg {
+    width: 22px;
+    height: 22px;
+    fill: currentColor;
+}
+
+.icon-link:hover {
+    color: var(--text);
+    transform: translateY(-2px);
+}
+
+.icon-links {
+    display: flex;
+    gap: 0.25rem;
     list-style: none;
 }
 
@@ -605,12 +626,12 @@ dialog.lightbox::backdrop {
     top: 1rem;
     right: var(--gutter);
     z-index: 1;
-    padding: 0.55rem 1.1rem;
+    padding: 0.55rem 1rem;
     border: 0;
-    border-radius: 999px;
+    border-radius: var(--r-sm);
     background: var(--surface-2);
     color: var(--text);
-    font-weight: 800;
+    font-weight: 700;
     cursor: pointer;
     transition: background-color 0.15s ease;
 }

@@ -31,7 +31,7 @@
 .doc-toc summary {
     padding: 0.6rem 0.75rem;
     list-style: none;
-    font-weight: 800;
+    font-weight: 700;
     color: var(--text-soft);
     cursor: pointer;
 }
@@ -47,10 +47,10 @@
 .toc-list a {
     display: block;
     padding: 0.5rem 0.75rem;
-    border-radius: var(--r-sm);
+    border-radius: var(--r-xs);
     color: var(--text-soft);
     font-size: 0.9rem;
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1.35;
     text-decoration: none;
     transition: background-color 0.15s ease, color 0.15s ease;
@@ -79,20 +79,16 @@
 
 .doc h1 {
     color: var(--text);
-    font-size: clamp(2.1rem, 5vw, 3.25rem);
-    font-weight: 900;
+    font-size: clamp(2rem, 4.5vw, 2.75rem);
+    font-weight: 800;
     letter-spacing: -0.025em;
     line-height: 1.05;
     margin-bottom: 1rem;
 }
 
 .doc h1 + p {
-    display: inline-block;
-    margin-bottom: 0.75rem;
-    padding: 0.3rem 0.85rem;
-    border-radius: 999px;
-    background: var(--surface-2);
-    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
     color: var(--text-soft);
 }
 
@@ -100,7 +96,7 @@
     margin: 2.25rem 0 0.7rem;
     color: var(--text);
     font-size: 1.3rem;
-    font-weight: 800;
+    font-weight: 700;
 }
 
 .doc p,

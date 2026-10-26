@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Szép Adrián Attila - Projects</title>
     <meta name="description" content="Games and software by Szép Adrián Attila, including the action roguelike Rogue Melee.">
-    <meta name="theme-color" content="#15181e">
+    <meta name="theme-color" content="#0f1115">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Szép Adrián Attila">
     <meta property="og:title" content="Szép Adrián Attila - Projects">
@@ -16,7 +16,7 @@
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Nunito:ital,wght@0,400..900;1,400..900&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap">
     <link rel="stylesheet" href="style/main.css">
     <link rel="stylesheet" href="style/projects.css">
 </head>
@@ -29,10 +29,10 @@
                 <span class="when-closed">Menu</span><span class="when-open">Close</span>
             </button>
             <nav class="site-nav" id="site-nav" aria-label="Main">
-                <a href="index.html"><span class="nav-num" aria-hidden="true">01</span>About</a>
-                <a href="projects.html" aria-current="page"><span class="nav-num" aria-hidden="true">02</span>Projects</a>
-                <a href="apps.html"><span class="nav-num" aria-hidden="true">03</span>Apps</a>
-                <a href="contact.html"><span class="nav-num" aria-hidden="true">04</span>Contact</a>
+                <a href="index.html">About</a>
+                <a href="projects.html" aria-current="page">Projects</a>
+                <a href="apps.html">Apps</a>
+                <a href="contact.html">Contact</a>
             </nav>
         </div>
     </header>
@@ -40,10 +40,6 @@
     <main id="main">
         <header class="wrap page-head">
             <h1>Projects</h1>
-            <ul class="chips">
-                <li class="chip">1 game on Steam</li>
-                <li class="chip">6 more on GitHub</li>
-            </ul>
         </header>
 
         <section class="wrap" id="rogue-melee" aria-labelledby="rm-title">
@@ -54,16 +50,12 @@
 
                 <div class="game-body">
                     <div class="game-main">
-                        <ul class="chips">
-                            <li class="chip chip-accent">Featured</li>
-                            <li class="chip">On Steam</li>
-                        </ul>
                         <h2 id="rm-title">Rogue Melee</h2>
                         <p class="game-desc">Rogue Melee is an action roguelike where you fight your way through a randomly generated dungeon.
                             As you descend deeper, every floor has a unique theme, cast of enemies, bosses and treasure to find.
                             You will also acquire stronger weapons and items that empower you on your journey.</p>
                         <ul class="chips game-tags">
-                            <li class="chip">Action roguelike</li>
+                            <li class="chip chip-accent">Steam</li>
                             <li class="chip">C#</li>
                             <li class="chip">Raylib</li>
                             <li class="chip">GLSL shaders</li>
@@ -97,27 +89,27 @@
                 <div class="clips">
                     <h3 class="side-title">Clips</h3>
                     <div class="clip-grid">
-                        <button type="button" class="tile clip-btn" data-video="media/combat.mp4" aria-label="Play gameplay clip: combat">
-                            <span class="tile-art">
+                        <div class="clip">
+                            <button type="button" class="tile-art clip-btn" data-video="media/combat.mp4" aria-label="Play gameplay clip: combat">
                                 <video muted loop playsinline preload="none" poster="media/combat_thumbnail.png"></video>
-                                <span class="clip-play" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M5 3v10l8-5z"/></svg></span>
-                            </span>
-                            <span class="tile-info"><span class="tile-title">Combat</span></span>
-                        </button>
-                        <button type="button" class="tile clip-btn" data-video="media/enemies.mp4" aria-label="Play gameplay clip: enemies">
-                            <span class="tile-art">
+                                <span class="clip-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7.5 6.2v11.6c0 .8.9 1.3 1.6.9l9.2-5.8c.6-.4.6-1.3 0-1.7L9.1 5.4c-.7-.5-1.6 0-1.6.8z"/></svg></span>
+                            </button>
+                            <p class="clip-title">Combat</p>
+                        </div>
+                        <div class="clip">
+                            <button type="button" class="tile-art clip-btn" data-video="media/enemies.mp4" aria-label="Play gameplay clip: enemies">
                                 <video muted loop playsinline preload="none" poster="media/enemies_thumbnail.png"></video>
-                                <span class="clip-play" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M5 3v10l8-5z"/></svg></span>
-                            </span>
-                            <span class="tile-info"><span class="tile-title">Enemies</span></span>
-                        </button>
-                        <button type="button" class="tile clip-btn" data-video="media/item.mp4" aria-label="Play gameplay clip: items">
-                            <span class="tile-art">
+                                <span class="clip-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7.5 6.2v11.6c0 .8.9 1.3 1.6.9l9.2-5.8c.6-.4.6-1.3 0-1.7L9.1 5.4c-.7-.5-1.6 0-1.6.8z"/></svg></span>
+                            </button>
+                            <p class="clip-title">Enemies</p>
+                        </div>
+                        <div class="clip">
+                            <button type="button" class="tile-art clip-btn" data-video="media/item.mp4" aria-label="Play gameplay clip: items">
                                 <video muted loop playsinline preload="none" poster="media/item_thumbnail.png"></video>
-                                <span class="clip-play" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M5 3v10l8-5z"/></svg></span>
-                            </span>
-                            <span class="tile-info"><span class="tile-title">Items</span></span>
-                        </button>
+                                <span class="clip-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7.5 6.2v11.6c0 .8.9 1.3 1.6.9l9.2-5.8c.6-.4.6-1.3 0-1.7L9.1 5.4c-.7-.5-1.6 0-1.6.8z"/></svg></span>
+                            </button>
+                            <p class="clip-title">Items</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -126,57 +118,69 @@
         <section class="wrap more" id="more" aria-labelledby="more-title">
             <div class="shelf-head">
                 <h2 id="more-title">More games &amp; tools</h2>
-                <a class="pill" href="https://github.com/szepad/" target="_blank" rel="noopener">All on GitHub <span class="arrow arrow-ne" aria-hidden="true">↗</span></a>
+                <a class="btn btn-sm" href="https://github.com/szepad/" target="_blank" rel="noopener">All on GitHub <span class="arrow arrow-ne" aria-hidden="true">↗</span></a>
             </div>
             <div class="tile-grid">
-                <a class="tile" href="https://github.com/szepad/SuperMario" target="_blank" rel="noopener">
-                    <div class="tile-art"><img src="media/mario_editor.png" alt="" loading="lazy"></div>
+                <div class="tile">
+                    <a class="tile-art" href="https://github.com/szepad/SuperMario" target="_blank" rel="noopener" aria-label="Mario Editor on GitHub">
+                        <img src="media/mario_editor.png" alt="" loading="lazy">
+                    </a>
                     <div class="tile-info">
-                        <span class="tile-title">Mario Editor</span>
-                        <span class="tile-desc">A fully functional level editor with a clean, modern UI, where you can build custom Mario levels (and play them too!).</span>
-                        <span class="chips"><span class="chip">C#</span><span class="chip">GitHub ↗</span></span>
+                        <h3 class="tile-title">Mario Editor</h3>
+                        <p class="tile-desc">A fully functional level editor with a clean, modern UI, where you can build custom Mario levels (and play them too!).</p>
+                        <ul class="chips"><li class="chip">C#</li><li class="chip">GitHub</li></ul>
                     </div>
-                </a>
-                <a class="tile" href="https://github.com/szepad/RPG2" target="_blank" rel="noopener">
-                    <div class="tile-art"><img src="media/rpg2.png" alt="" loading="lazy"></div>
+                </div>
+                <div class="tile">
+                    <a class="tile-art" href="https://github.com/szepad/RPG2" target="_blank" rel="noopener" aria-label="Obscure Adventure on GitHub">
+                        <img src="media/rpg2.png" alt="" loading="lazy">
+                    </a>
                     <div class="tile-info">
-                        <span class="tile-title">Obscure Adventure</span>
-                        <span class="tile-desc">A 2D story/puzzle game where you discover the secrets of a beautiful world!</span>
-                        <span class="chips"><span class="chip">C#</span><span class="chip">GitHub ↗</span></span>
+                        <h3 class="tile-title">Obscure Adventure</h3>
+                        <p class="tile-desc">A 2D story/puzzle game where you discover the secrets of a beautiful world!</p>
+                        <ul class="chips"><li class="chip">C#</li><li class="chip">GitHub</li></ul>
                     </div>
-                </a>
-                <a class="tile" href="https://github.com/szepad/SHMUP" target="_blank" rel="noopener">
-                    <div class="tile-art"><img src="media/shmup.png" class="img-top" alt="" loading="lazy"></div>
+                </div>
+                <div class="tile">
+                    <a class="tile-art" href="https://github.com/szepad/SHMUP" target="_blank" rel="noopener" aria-label="SHMUP on GitHub">
+                        <img src="media/shmup.png" class="img-top" alt="" loading="lazy">
+                    </a>
                     <div class="tile-info">
-                        <span class="tile-title">SHMUP</span>
-                        <span class="tile-desc">A retro, Galaga-like, fast-paced shoot 'em up.</span>
-                        <span class="chips"><span class="chip">C#</span><span class="chip">GitHub ↗</span></span>
+                        <h3 class="tile-title">SHMUP</h3>
+                        <p class="tile-desc">A retro, Galaga-like, fast-paced shoot 'em up.</p>
+                        <ul class="chips"><li class="chip">C#</li><li class="chip">GitHub</li></ul>
                     </div>
-                </a>
-                <a class="tile" href="https://github.com/szepad/Asteroids" target="_blank" rel="noopener">
-                    <div class="tile-art"><img src="media/asteroids.png" alt="" loading="lazy"></div>
+                </div>
+                <div class="tile">
+                    <a class="tile-art" href="https://github.com/szepad/Asteroids" target="_blank" rel="noopener" aria-label="Asteroids on GitHub">
+                        <img src="media/asteroids.png" alt="" loading="lazy">
+                    </a>
                     <div class="tile-info">
-                        <span class="tile-title">Asteroids</span>
-                        <span class="tile-desc">The classic arcade game, written in C#.</span>
-                        <span class="chips"><span class="chip">C#</span><span class="chip">GitHub ↗</span></span>
+                        <h3 class="tile-title">Asteroids</h3>
+                        <p class="tile-desc">The classic arcade game, written in C#.</p>
+                        <ul class="chips"><li class="chip">C#</li><li class="chip">GitHub</li></ul>
                     </div>
-                </a>
-                <a class="tile" href="https://github.com/szepad/Tetris" target="_blank" rel="noopener">
-                    <div class="tile-art"><img src="media/tetris.png" alt="" loading="lazy"></div>
+                </div>
+                <div class="tile">
+                    <a class="tile-art" href="https://github.com/szepad/Tetris" target="_blank" rel="noopener" aria-label="Tetris on GitHub">
+                        <img src="media/tetris.png" alt="" loading="lazy">
+                    </a>
                     <div class="tile-info">
-                        <span class="tile-title">Tetris</span>
-                        <span class="tile-desc">Classic Tetris, written in C++.</span>
-                        <span class="chips"><span class="chip">C++</span><span class="chip">GitHub ↗</span></span>
+                        <h3 class="tile-title">Tetris</h3>
+                        <p class="tile-desc">Classic Tetris, written in C++.</p>
+                        <ul class="chips"><li class="chip">C++</li><li class="chip">GitHub</li></ul>
                     </div>
-                </a>
-                <a class="tile" href="https://github.com/szepad/Pong" target="_blank" rel="noopener">
-                    <div class="tile-art"><img src="media/pong.png" alt="" loading="lazy"></div>
+                </div>
+                <div class="tile">
+                    <a class="tile-art" href="https://github.com/szepad/Pong" target="_blank" rel="noopener" aria-label="Pong on GitHub">
+                        <img src="media/pong.png" alt="" loading="lazy">
+                    </a>
                     <div class="tile-info">
-                        <span class="tile-title">Pong</span>
-                        <span class="tile-desc">Old-school Pong with an actually smart AI.</span>
-                        <span class="chips"><span class="chip">C#</span><span class="chip">GitHub ↗</span></span>
+                        <h3 class="tile-title">Pong</h3>
+                        <p class="tile-desc">Old-school Pong with an actually smart AI.</p>
+                        <ul class="chips"><li class="chip">C#</li><li class="chip">GitHub</li></ul>
                     </div>
-                </a>
+                </div>
             </div>
         </section>
 
@@ -194,9 +198,9 @@
             </a>
             <div class="footer-meta">
                 <span>&copy; 2026 Szép Adrián Attila</span>
-                <ul class="footer-links">
-                    <li><a class="pill" href="https://github.com/szepad/" target="_blank" rel="noopener">GitHub ↗</a></li>
-                    <li><a class="pill" href="https://www.linkedin.com/in/adrian-szep/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+                <ul class="footer-links icon-links">
+                    <li><a class="icon-link" href="https://github.com/szepad/" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a></li>
+                    <li><a class="icon-link" href="https://www.linkedin.com/in/adrian-szep/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></li>
                 </ul>
             </div>
         </div>
